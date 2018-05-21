@@ -5,6 +5,7 @@ import {Event, EventType} from '../engine/Event';
 import Location from '../engine/Location'
 import CommandView from "./CommandView";
 import ErrorView from "./ErrorView";
+import HelpView from "./HelpView";
 import LocationView from "./LocationView";
 
 interface GameViewProps {
@@ -28,7 +29,10 @@ function GameView(props: GameViewProps) {
                                              description={location.description}
                                              image={location.image}/>
                     }
-
+                    case EventType.HELP: {
+                        const availableCommands: string[] = event.props as string[];
+                        return <HelpView visibleCommand={availableCommands}/>
+                    }
                     case EventType.UNKNOWN: {
                         const error: Error = event.props as Error;
                         return <ErrorView error={error.error}/>

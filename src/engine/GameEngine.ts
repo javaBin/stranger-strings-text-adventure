@@ -4,8 +4,7 @@ import {Event, EventType} from "./Event";
 import Location from "./Location";
 
 function getCmdType(cmd: string) {
-    const cmdType: CommandType = CommandType[cmd];
-    return !cmdType ? CommandType.UNKNOWN : cmdType
+    return CommandType[cmd];
 }
 
 class GameEngine {
@@ -50,9 +49,15 @@ class GameEngine {
                 break;
             }
 
-            case CommandType.UNKNOWN: {
+            case CommandType.HELP: {
+                const commands = CommandType.values.map(type => type.name);
+                this.events.push(new Event(EventType.HELP, commands));
+                break
+            }
+
+            default: {
                 this.events.push(new Event(EventType.UNKNOWN,
-                    new Error("Unvalid input. For a list of available command, type HELP")));
+                    new Error("Invalid input. For a list of available command, type HELP")));
                 break
             }
         }

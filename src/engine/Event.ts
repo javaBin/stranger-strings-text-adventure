@@ -1,6 +1,7 @@
 export enum EventType {
     LOCATION_CHANGE,
     NEW_COMMAND,
+    HELP,
     UNKNOWN
 }
 
