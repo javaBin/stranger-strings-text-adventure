@@ -40,11 +40,9 @@ body {
 
 .image{
   margin: 0 auto;
-  display: block;
+  width: fit-content;
   font-family: 'VT323', monospace;
   line-height: 2.32vw;
-  text-align: center;
-
 }
 
 .imageLine{

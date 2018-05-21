@@ -1,7 +1,11 @@
 import GameEngine from "../engine/GameEngine";
 import Location from "../engine/Location";
 import door from './img/halway';
-import image from './img/monster';
+import path from './img/path';
+
+// ascii art taken from https://www.asciiart.eu/
+
+// import image from './img/monster';
 
 
 const gameEngine = new GameEngine();
@@ -15,7 +19,7 @@ const l2 = new Location()
 const l1 = new Location()
     .setId("l1")
     .setDesc("haha")
-    .setImg(image)
+    .setImg(path)
     .link("north", l2);
 
 
