@@ -8,9 +8,9 @@ body {
   line-height: 4vh;
 }
 
-#game {
+.events-container {
   width: 95vw;
-  height: 80vh;
+  height: 85vh;
   margin-bottom: 2vw;
   overflow-y: scroll;
   padding: 2vw;
@@ -23,6 +23,7 @@ body {
   font-family: 'VT323', monospace;
   font-size: 3vh;
   bottom: 3vh;
+  padding: 2vw;
 }
 
 #input-element{
@@ -30,7 +31,7 @@ body {
   padding-left: 2vh;
   height: 4vh;
   color: #00ee00;
-  background: #111111;
+  background: transparent;
   font-family: 'VT323', monospace;
   font-size: 3vh;
   border: none;

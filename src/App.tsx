@@ -15,12 +15,7 @@ class App extends React.Component<any, AppState> {
         super(props);
         this.onBlur = this.onBlur.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
-        this.scrollToBottom = this.scrollToBottom.bind(this);
         this.state = {events: GameScenario.getEvents()};
-    }
-
-    public scrollToBottom () {
-        this.nameInput.scrollIntoView({ behavior: "smooth" });
     }
 
     public onBlur() {
@@ -32,7 +27,6 @@ class App extends React.Component<any, AppState> {
             GameScenario.send(this.nameInput.value);
             this.nameInput.value = "";
             this.setState({events: GameScenario.getEvents()});
-            this.scrollToBottom();
         }
     }
 
