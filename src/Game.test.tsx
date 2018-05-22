@@ -1,14 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from './App';
+import Game from './Game';
 
-/* tslint:disable */
-window['HTMLElement'].prototype.scrollIntoView = () => {};
-/* tslint:enable */
-
+(window as any).prototype.scrollIntoView = () => undefined;
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<Game />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

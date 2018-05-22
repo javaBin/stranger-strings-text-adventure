@@ -1,6 +1,9 @@
-import {Command, CommandType} from "./Command";
-import {Error} from "./Error";
-import {Event, EventType} from "./Event";
+import {CommandType} from "./Command";
+import {
+    GameErrorEvent, GameEvent, HelpEvent, LocationChangeEvent,
+    NewInputEvent
+} from "./Event";
+import {GameError} from "./GameError";
 import Location from "./Location";
 
 function getCmdType(cmd: string) {
@@ -10,59 +13,64 @@ function getCmdType(cmd: string) {
 class GameEngine {
 
     private currentLocation: Location;
-    private events: Event[];
+    private events: GameEvent[];
 
     constructor() {
         this.events = [];
     }
 
     public setStartLocation(location: Location): GameEngine {
-        this.currentLocation = location;
-        this.events.push(new Event(EventType.LOCATION_CHANGE, location));
+        this.changeLocation(location);
         return this;
     }
 
-    public getEvents(): Event[] {
+    public getEvents(): GameEvent[] {
         return this.events;
     }
 
-    public send(maybeCmd: string){
-        const words = maybeCmd.split(" ");
+    public send(input: string){
+        const words = input.split(" ");
         const cmd = words.shift();
         const rest = words.join(" ");
 
-
         const cmdType: CommandType = getCmdType(cmd!.toUpperCase());
 
-        this.events.push(new Event(EventType.NEW_COMMAND, new Command(cmdType, maybeCmd)));
+        this.events.push(new NewInputEvent(input));
         switch (cmdType) {
             case CommandType.GO: {
                 const maybeNewLocation = this.currentLocation.locations[rest];
                 if (maybeNewLocation) {
-                    this.currentLocation = maybeNewLocation;
-                    this.events.push(new Event(EventType.LOCATION_CHANGE, maybeNewLocation));
+                    this.changeLocation(maybeNewLocation);
                 } else {
-                    this.events.push(
-                        new Event(EventType.UNKNOWN,
-                        new Error("There is no path there")));
+                    this.events.push(new GameErrorEvent(GameError.INVALID_PATH));
                 }
                 break;
             }
 
             case CommandType.HELP: {
                 const commands = CommandType.values.map(type => type.name);
-                this.events.push(new Event(EventType.HELP, commands));
+                this.events.push(new HelpEvent(commands));
                 break
             }
 
             default: {
-                this.events.push(new Event(EventType.UNKNOWN,
-                    new Error("Invalid input. For a list of available command, type HELP")));
+                this.events.push(new GameErrorEvent(GameError.UNKNOWN_COMMAND));
                 break
             }
         }
 
 
+    }
+
+    private changeLocation(location: Location): GameEngine {
+        this.currentLocation = location;
+        this.events.push(
+            new LocationChangeEvent(
+                location.id,
+                location.description,
+                location.image)
+        );
+        return this;
     }
 
 }

@@ -1,14 +1,14 @@
 import * as React from 'react';
 import {KeyboardEvent} from "react";
-import {Event} from "./engine/Event"
+import {GameEvent} from "./engine/Event"
 import GameScenario from './scenario/main';
-import GameView from "./view/GameView";
+import GameView from "./view/EventsView";
 
 interface AppState {
-    events: Event[]
+    events: GameEvent[]
 }
 
-class App extends React.Component<any, AppState> {
+class Game extends React.Component<any, AppState> {
     private nameInput: HTMLInputElement;
 
     constructor(props: any) {
@@ -51,4 +51,4 @@ class App extends React.Component<any, AppState> {
     }
 }
 
-export default App;
+export default Game;
