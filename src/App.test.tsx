@@ -2,7 +2,10 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './App';
 
-window['HTMLElement'].prototype.scrollIntoView = function() {};
+/* tslint:disable */
+window['HTMLElement'].prototype.scrollIntoView = () => {};
+/* tslint:enable */
+
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
