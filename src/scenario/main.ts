@@ -10,7 +10,7 @@ import path from './img/path';
 
 // all your bases belongs to use
 // the princess is in another castle
-
+// konami kode
 
 const gameEngine = new GameEngine();
 
