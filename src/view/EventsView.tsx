@@ -16,6 +16,7 @@ class EventsView extends React.Component<EventsViewProps, any> {
     constructor(props: any) {
         super(props);
         this.scrollToBottom = this.scrollToBottom.bind(this);
+        window.addEventListener("resize", this.scrollToBottom.bind(this));
     }
 
     public scrollToBottom() {
