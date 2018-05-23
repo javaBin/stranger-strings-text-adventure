@@ -8,6 +8,12 @@ body {
     line-height: 1.3em;
 }
 
+input, select, textarea, button {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
 .events-container {
     margin-bottom: 3em;
     padding: 1em;
@@ -24,15 +30,12 @@ body {
     flex-direction: row
 }
 
-#input-tag{
-    white-space:pre;
+#input-tag {
+    white-space: pre;
 }
 
 #input-element {
-    color: #00ee00;
     background: transparent;
-    font-family: 'VT323', monospace;
-    font-size: 1em;
     border: none;
     outline: none;
     flex: 1;
@@ -57,6 +60,10 @@ body {
 
 @media (max-width: 481px) {
     /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    body {
+        font-size: 1em;
+    }
+
     .image {
         line-height: 2.32vw;
     }
