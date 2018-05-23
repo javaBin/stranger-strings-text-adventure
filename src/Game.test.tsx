@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Game from './Game';
 
-(window as any).prototype.scrollIntoView = () => undefined;
+(window as any).HTMLElement.prototype.scrollIntoView = () => undefined;
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
