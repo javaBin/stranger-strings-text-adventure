@@ -36,7 +36,7 @@ class Game extends React.Component<any, AppState> {
             <div id="game">
                 <GameView events={this.state.events}/>
                 <span id="input">
-                    >
+                    <div id="input-tag">{'> '}</div>
                     <input id="input-element"
                            ref={(input: HTMLInputElement) => {
                                this.nameInput = input;
