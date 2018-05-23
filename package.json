@@ -2,7 +2,6 @@
   "name": "jz-text-adventure",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://javaBin.github.io/Project-CoffEE",
   "dependencies": {
     "gh-pages": "^1.1.0",
     "react": "^16.3.2",
