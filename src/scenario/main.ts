@@ -1,7 +1,7 @@
 import GameEngine from "../engine/GameEngine";
 import Location from "../engine/Location";
+import path from './img/forest';
 import door from './img/halway';
-import path from './img/path';
 
 // ascii art taken from https://www.asciiart.eu/
 
