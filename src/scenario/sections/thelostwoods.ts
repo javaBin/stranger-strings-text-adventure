@@ -13,7 +13,7 @@ const b = new Location()
 const right2 = new Location()
     .setId("The Lost Woods")
     .setDesc("You arrive at an intersection in the forest." +
-        " You see 4 path different paths you can take: left, back, up, down.");
+        " You see 2 marked paths you can take: A, B");
 
 const left2 = new Location()
     .setId("The Lost Woods")
