@@ -7,3 +7,4 @@ You can find the most recent version of `create-react-app` guide [here](https://
 ## TODO Notes:
  - hook callback function on rooms/items that can change the game state as it suits them
  
+ - MUST add up = last input

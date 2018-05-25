@@ -38,7 +38,7 @@ class GameEngine {
         this.events.push(new NewInputEvent(input));
         switch (cmdType) {
             case CommandType.GO: {
-                const maybeNewLocation = this.currentLocation.locations[rest];
+                const maybeNewLocation = this.currentLocation.locations[rest.toLowerCase()];
                 if (maybeNewLocation) {
                     this.changeLocation(maybeNewLocation);
                 } else {
