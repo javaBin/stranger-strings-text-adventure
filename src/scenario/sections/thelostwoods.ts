@@ -58,9 +58,9 @@ const up1 = new Location()
 const startLocation = new Location()
     .setId("The Lost Woods")
     .setDesc(`You are at the entrance of the forest. 
-        The forest seems big and it seems impossible to see the 
-        difference between the different paths available.  
-        You see 4 path into the forest: left, back, up, down.
+        The forest seems big and impossible to pass through.
+        There is a sign at the entrance: Only the truly observant may pass.    
+        You see 4 paths into the forest: left, back, up, down.
         Or you can go back to the main road`
     )
     .setImg(path);

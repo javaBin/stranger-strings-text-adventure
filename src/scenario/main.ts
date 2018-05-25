@@ -11,7 +11,8 @@ import lostWoods from './sections/thelostwoods'
 
 // all your bases belongs to use
 // the princess is in another castle
-// konami kode
+
+//tri force of java
 
 const gameEngine = new GameEngine();
 
