@@ -18,41 +18,41 @@ const right2 = new Location()
 const left2 = new Location()
     .setId("The Lost Woods")
     .setDesc("You arrive at an intersection in the forest." +
-        " You see 4 path different paths you can take: left, back, up, down.");
+        " You see 4 path different paths you can take: left, right, up, down.");
 
 const right1 = new Location()
     .setId("The Lost Woods")
     .setDesc("You arrive at an intersection in the forest." +
-        " You see 4 path different paths you can take: left, back, up, down.");
+        " You see 4 path different paths you can take: left, right, up, down.");
 
 const left1 = new Location()
     .setId("The Lost Woods")
     .setDesc("You arrive at an intersection in the forest." +
-        " You see 4 path different paths you can take: left, back, up, down.");
+        " You see 4 path different paths you can take: left, right, up, down.");
 
 
 const down2 = new Location()
     .setId("The Lost Woods")
     .setDesc("You arrive at an intersection in the forest." +
-        " You see 4 path different paths you can take: left, back, up, down.");
+        " You see 4 path different paths you can take: left, right, up, down.");
 
 
 const down1 = new Location()
     .setId("The Lost Woods")
     .setDesc("You arrive at an intersection in the forest." +
-        " You see 4 path different paths you can take: left, back, up, down.");
+        " You see 4 path different paths you can take: left, right, up, down.");
 
 
 const up2 = new Location()
     .setId("The Lost Woods")
     .setDesc("You arrive at an intersection in the forest." +
-        " You see 4 path different paths you can take: left, back, up, down.");
+        " You see 4 path different paths you can take: left, right, up, down.");
 
 
 const up1 = new Location()
     .setId("The Lost Woods")
     .setDesc("You arrive at an intersection in the forest." +
-        " You see 4 path different paths you can take: left, back, up, down.");
+        " You see 4 path different paths you can take: left, right, up, down.");
 
 
 const startLocation = new Location()
@@ -60,7 +60,7 @@ const startLocation = new Location()
     .setDesc(`You are at the entrance of the forest. 
         The forest seems big and impossible to pass through.
         There is a sign at the entrance: Only the truly observant may pass.    
-        You see 4 paths into the forest: left, back, up, down.
+        You see 4 paths into the forest: left, right, up, down.
         Or you can go back to the main road`
     )
     .setImg(path);

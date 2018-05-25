@@ -31,8 +31,8 @@ const l1 = new Location()
     .link("woods", lostWoods)
     .link("to the lost woods", lostWoods)
     .link("the lost woods", lostWoods)
+    .link("to lost woods", lostWoods)
     .link("lost woods", lostWoods)
-    .link("woods", lostWoods)
     .link("forest", lostWoods);
 
 
