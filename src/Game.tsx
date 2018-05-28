@@ -1,11 +1,12 @@
 import * as React from 'react';
 import {KeyboardEvent} from "react";
-import {GameEvent} from "./engine/Event"
+import {GameEvent, GameEventType, NewInputEvent} from "./engine/Event"
 import GameScenario from './scenario/main';
 import GameView from "./view/EventsView";
 
 interface AppState {
     events: GameEvent[]
+    lastInputPointer: number
 }
 
 class Game extends React.Component<any, AppState> {
@@ -14,22 +15,35 @@ class Game extends React.Component<any, AppState> {
     constructor(props: any) {
         super(props);
         this.onBlur = this.onBlur.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
-        this.state = {events: GameScenario.getEvents()};
+        this.handleKeyDown = this.handleKeyDown.bind(this);
+        this.state = {
+            events: GameScenario.getEvents(),
+            lastInputPointer: 0
+        };
     }
 
     public onBlur() {
         this.nameInput.focus()
     }
 
-    public handleKeyPress(event: KeyboardEvent<HTMLInputElement>) {
+    public handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
         if (event.key === 'Enter' && this.nameInput.value.length !== 0) {
             GameScenario.send(this.nameInput.value);
             this.nameInput.value = "";
-            this.setState({events: GameScenario.getEvents()});
+            this.setState({
+                events: GameScenario.getEvents(),
+                lastInputPointer: 0
+            });
+        }
+        else if (event.key === 'ArrowUp') {
+            event.preventDefault();
+            this.nameInput.value = this.getHistoryInput(this.state.lastInputPointer - 1);
+        }
+        else if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            this.nameInput.value = this.getHistoryInput(this.state.lastInputPointer + 1);
         }
     }
-
 
     public render() {
         return (
@@ -43,11 +57,42 @@ class Game extends React.Component<any, AppState> {
                            }}
                            autoFocus={true}
                            onBlur={this.onBlur}
-                           onKeyPress={this.handleKeyPress}
+                           onKeyDown={this.handleKeyDown}
                     />
                 </span>
             </div>
         );
+    }
+
+
+    private getHistoryInput(pointer: number): string {
+
+        // if pointer points forward do nothing
+        if(pointer >= 0){
+            this.setState({
+                lastInputPointer: 0
+            });
+            return '';
+        }
+
+        // get all inputs
+        const newInputEvents =
+            this.state.events
+                .filter((gameEvent): gameEvent is NewInputEvent => gameEvent.type === GameEventType.NEW_INPUT);
+
+        // if the pointer points to the beginning do not allow it to travel further
+        if (Math.abs(pointer) <= newInputEvents.length){
+            this.setState({
+                lastInputPointer: pointer
+            });
+        }
+
+        // return the input pointed at
+        return newInputEvents
+            .map(gameEvent => gameEvent.input)
+            .slice(pointer)
+            .shift() || '';
+
     }
 }
 
