@@ -17,9 +17,12 @@ import lostWoods from './sections/thelostwoods'
 const gameEngine = new GameEngine();
 
 const l2 = new Location()
-    .setId("l1")
+    .setId("An old abandoned door")
     .setImg(door)
-    .setDesc("haha2323");
+    .setDesc('The door is locked. The door is made out of metal. ' +
+        'There is a broken key in the key hole. The door is welded shout. ' +
+        'A wizard stands in your way and tells you "YOU SHALL NOT PASS", ' +
+        'You see a path back. God himself recommends you to go back.');
 
 
 const l1 = new Location()
@@ -41,6 +44,8 @@ lostWoods.link("main", l1);
 lostWoods.link("main road", l1);
 lostWoods.link("the main road", l1);
 lostWoods.link("to the main road", l1);
+
+l2.link("back", l1);
 gameEngine.setStartLocation(l1);
 
 
