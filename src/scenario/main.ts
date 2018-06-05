@@ -9,9 +9,8 @@ import lostWoods from './sections/thelostwoods'
 // import image from './img/monster';
 
 
-// all your bases belongs to use
+// all your bases belong to us
 // the princess is in another castle
-
 // tri force of java
 
 const gameEngine = new GameEngine();
@@ -21,7 +20,7 @@ const l2 = new Location()
     .setImg(door)
     .setDesc('The door is locked. The door is made out of metal. ' +
         'There is a broken key in the key hole. The door is welded shut. ' +
-        'A wizard stands in your way and tells you "YOU SHALL NOT PASS", ' +
+        'A wizard stands in your way and tells you "YOU SHALL NOT PASS". ' +
         'You see a path back. God himself recommends you to go back.');
 
 
