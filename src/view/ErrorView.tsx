@@ -10,7 +10,7 @@ function errorMessage(error: GameError): string{
         case GameError.INVALID_PATH:
             return "There is no path there";
         case GameError.UNKNOWN_COMMAND:
-            return "Invalid input. For a list of available command, type HELP";
+            return "Unknown command. I don't understand that input. For a list of available command, type HELP";
     }
 }
 

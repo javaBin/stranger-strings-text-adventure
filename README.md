@@ -6,7 +6,7 @@ You can find the most recent version of `create-react-app` guide [here](https://
 
 ## TODO Notes:
  - hook callback function on rooms/items that can change the game state as it suits them
- 
+ - "GO" should be optional 
 
 ## Good puzzle design rules
 
@@ -16,4 +16,6 @@ You can find the most recent version of `create-react-app` guide [here](https://
     - Add many clues on how to solve a puzzle. either by looking at stuff or talking to people
     - signposting is like providing lots of little subtile goals for those that are listening and looking carefully
 3: Feedback: 
-    - A puzzle should help solve it self by giving feedback. Letting you know if you are on the right track 
+    - A puzzle should help solve it self by giving feedback. Letting you know if you are on the right track
+    
+     
