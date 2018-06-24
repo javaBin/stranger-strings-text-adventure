@@ -1,11 +1,14 @@
 import * as React from 'react';
-import Game from "./Game";
+import Game from "../../Game";
+import AsciiImage from "../AsciiImage";
+import Logo from "./logo";
 
 
 function GameIntroView() {
     return <div className="game-intro">
-        <h1 className="game-intro-title">READY PLAYER ONE</h1>
-        <h2 className="game-intro-subtitle">PRESS ENTER TO PLAY THE GAME</h2>
+        <AsciiImage imageSrc={Logo}/>
+        <h2 className="game-intro-subtitle">The quest for the holy artifact</h2>
+        <h3 className="game-intro-enter">> Press enter to play the game </h3>
     </div>;
 }
 

@@ -22,17 +22,15 @@ input, select, textarea, button {
     height: 100vh;
 }
 
-.game-intro-title {
+.game-intro-subtitle {
     font-weight: normal;
-    font-size: 10vw;
-    font-family: 'IBM Plex Mono', monospace;
+    font-size: 4vw;
     text-align: center;
 }
 
-.game-intro-subtitle {
+.game-intro-enter {
     font-weight: normal;
-    font-size: 5vw;
-    font-family: 'IBM Plex Mono', monospace;
+    font-size: 2vw;
     text-align: center;
 }
 

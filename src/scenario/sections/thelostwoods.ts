@@ -78,6 +78,12 @@ startLocation.link("left", backAtStartLocation)
     .link("down", backAtStartLocation)
     .link("up", up1);
 
+backAtStartLocation.link("left", backAtStartLocation)
+    .link("right", backAtStartLocation)
+    .link("down", backAtStartLocation)
+    .link("up", up1);
+
+
 up1.link("left", backAtStartLocation)
     .link("right", backAtStartLocation)
     .link("down", backAtStartLocation)
@@ -119,6 +125,11 @@ right2.link("a", backAtStartLocation)
 b.link("a", goal)
     .link("b", goal);
 
+
+export function lostWoodsSection(backLocation: Location){
+    backAtStartLocation.link("back", backLocation);
+    return startLocation
+}
 
 export default startLocation
 

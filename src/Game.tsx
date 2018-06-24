@@ -7,6 +7,7 @@ import GameView from "./view/EventsView";
 interface AppState {
     events: GameEvent[]
     lastInputPointer: number
+    renderSOS: boolean;
 }
 
 class Game extends React.Component<any, AppState> {
@@ -18,7 +19,8 @@ class Game extends React.Component<any, AppState> {
         this.handleKeyDown = this.handleKeyDown.bind(this);
         this.state = {
             events: GameScenario.getEvents(),
-            lastInputPointer: 0
+            lastInputPointer: 0,
+            renderSOS: false
         };
     }
 
@@ -28,12 +30,17 @@ class Game extends React.Component<any, AppState> {
 
     public handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
         if (event.key === 'Enter' && this.nameInput.value.length !== 0) {
-            GameScenario.send(this.nameInput.value);
+            if (this.nameInput.value === "sos"){ // custom sos cmd
+                this.setState({renderSOS: true})
+            } else {
+                GameScenario.send(this.nameInput.value);
+                this.setState({
+                    events: GameScenario.getEvents(),
+                    lastInputPointer: 0
+                });
+            }
             this.nameInput.value = "";
-            this.setState({
-                events: GameScenario.getEvents(),
-                lastInputPointer: 0
-            });
+
         }
         else if (event.key === 'ArrowUp') {
             event.preventDefault();

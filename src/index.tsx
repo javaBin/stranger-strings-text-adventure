@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import GameIntro from "./GameIntro";
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
+import GameIntro from "./view/intro/GameIntro";
 
 ReactDOM.render(
-  <GameIntro />,
+<GameIntro />,
   document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();

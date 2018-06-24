@@ -2,7 +2,7 @@ import GameEngine from "../engine/GameEngine";
 import Location from "../engine/Location";
 import door from './img/halway';
 import path from './img/path';
-import lostWoods from './sections/thelostwoods'
+import {lostWoodsSection} from './sections/thelostwoods'
 
 // ascii art taken from https://www.asciiart.eu/
 
@@ -23,13 +23,21 @@ const l2 = new Location()
         'A wizard stands in your way and tells you "YOU SHALL NOT PASS". ' +
         'You see a path back. God himself recommends you to go back.');
 
+const hungry = new Location()
+    .setId("Bla las")
+    .setDesc("Something is coming. Something hungry for blood. A shadow grows")
+
 
 const l1 = new Location()
     .setId("A new beginning")
     .setDesc("You see a path north and a path to the lost woods")
     .setImg(path)
     .link("north", l2)
-    .link("wood", lostWoods)
+    .link("hungry", hungry);
+
+const lostWoods = lostWoodsSection(l1);
+
+l1.link("wood", lostWoods)
     .link("woods", lostWoods)
     .link("to the woods", lostWoods)
     .link("to the lost woods", lostWoods)
@@ -47,6 +55,7 @@ lostWoods.link("the main road", l1);
 lostWoods.link("to the main road", l1);
 
 l2.link("back", l1);
+
 gameEngine.setStartLocation(l1);
 
 
