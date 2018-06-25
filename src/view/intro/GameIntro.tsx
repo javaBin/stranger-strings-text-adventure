@@ -6,7 +6,7 @@ import Logo from "./logo";
 
 function GameIntroView() {
     return <div className="game-intro">
-        <AsciiImage imageSrc={Logo}/>
+        <AsciiImage className={"intro"} imageSrc={Logo}/>
         <h2 className="game-intro-subtitle">The quest for the holy artifact</h2>
         <h3 className="game-intro-enter">> Press enter to play the game </h3>
     </div>;

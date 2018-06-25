@@ -1,7 +1,9 @@
+import * as classNames from 'classnames';
 import * as React from 'react';
 
 interface AsciiImageProps {
-    imageSrc: string,
+    imageSrc: string;
+    className?: string;
 }
 
 
@@ -10,9 +12,12 @@ function AsciiImage(props: AsciiImageProps) {
         props
             .imageSrc
             .split('\n')
-            .map(line => <div className="imageLine" key={line}>{line}</div>);
+            .map(line =>
+                <div className={classNames("imageLine", props.className)}
+                     key={line}>{line}
+                </div>);
     return (
-        <div className="image">
+        <div className={classNames("image", props.className)}>
             {lines}
         </div>
     );

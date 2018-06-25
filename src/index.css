@@ -24,14 +24,22 @@ input, select, textarea, button {
 
 .game-intro-subtitle {
     font-weight: normal;
-    font-size: 4vw;
+    font-size: 1.5em;
     text-align: center;
 }
 
 .game-intro-enter {
     font-weight: normal;
-    font-size: 2vw;
+    font-size: 1em;
     text-align: center;
+}
+
+.image.intro {
+    line-height: 2.0vw;
+}
+
+.intro.imageLine {
+    font-size: 2.0vw;
 }
 
 .events-container {
