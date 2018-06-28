@@ -12,9 +12,9 @@ function AsciiImage(props: AsciiImageProps) {
         props
             .imageSrc
             .split('\n')
-            .map(line =>
+            .map((line, index) =>
                 <div className={classNames("imageLine", props.className)}
-                     key={line}>{line}
+                     key={index}>{line}
                 </div>);
     return (
         <div className={classNames("image", props.className)}>

@@ -3,6 +3,7 @@ import {KeyboardEvent} from "react";
 import {GameEvent, GameEventType, NewInputEvent} from "./engine/Event"
 import GameScenario from './scenario/main';
 import GameView from "./view/EventsView";
+import SOSView from "./view/hacks/SOSView";
 
 interface AppState {
     events: GameEvent[]
@@ -31,7 +32,7 @@ class Game extends React.Component<any, AppState> {
     public handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
         if (event.key === 'Enter' && this.nameInput.value.length !== 0) {
             if (this.nameInput.value === "sos"){ // custom sos cmd
-                this.setState({renderSOS: true})
+                this.setState({renderSOS: !this.state.renderSOS})
             } else {
                 GameScenario.send(this.nameInput.value);
                 this.setState({
@@ -55,7 +56,10 @@ class Game extends React.Component<any, AppState> {
     public render() {
         return (
             <div id="game">
-                <GameView events={this.state.events}/>
+                {this.state.renderSOS ?
+                    <SOSView/> :
+                    <GameView events={this.state.events}/>
+                }
                 <span id="input">
                     <div id="input-tag">{'> '}</div>
                     <input id="input-element"
