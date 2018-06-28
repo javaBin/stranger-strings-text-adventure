@@ -1,8 +1,9 @@
 import GameEngine from "../engine/GameEngine";
 import Location from "../engine/Location";
 import door from './img/halway';
+import mountain from './img/mountain';
 import path from './img/path';
-import {lostWoodsSection} from './sections/thelostwoods'
+import {lostWoodsSection} from './sections/thelostwoods';
 
 // ascii art taken from https://www.asciiart.eu/
 
@@ -24,8 +25,9 @@ const l2 = new Location()
         'You see a path back. God himself recommends you to go back.');
 
 const hungry = new Location()
-    .setId("Bla las")
-    .setDesc("Something is coming. Something hungry for blood. A shadow grows")
+    .setId("A Cabin in the woods")
+    .setImg(mountain)
+    .setDesc("Something is coming. Something hungry for blood. A shadow grows");
 
 
 const l1 = new Location()
