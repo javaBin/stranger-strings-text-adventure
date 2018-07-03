@@ -27,7 +27,7 @@ const l2 = new Location()
 const hungry = new Location()
     .setId("A Cabin in the woods")
     .setImg(mountain)
-    .setDesc("Something is coming. Something hungry for blood. A shadow grows");
+    .setDesc("A shadow grows on the wall behind you, swallowing you in darkness. Its almost here...");
 
 
 const l1 = new Location()

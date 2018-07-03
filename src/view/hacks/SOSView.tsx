@@ -10,6 +10,8 @@ interface SoSState {
     count: number
 }
 
+const timer = 1000;
+
 class SOSView extends React.Component<any, SoSState> {
     private eventEnd: HTMLDivElement;
     private mounted: boolean
@@ -34,7 +36,7 @@ class SOSView extends React.Component<any, SoSState> {
     public componentDidMount() {
         window.addEventListener("resize", this.scrollToBottom.bind(this));
         this.scrollToBottom();
-        setTimeout(() => this.increaseCounter(), 100);
+        setTimeout(() => this.increaseCounter(), timer);
     }
 
     public componentDidUpdate() {
@@ -48,7 +50,7 @@ class SOSView extends React.Component<any, SoSState> {
 
     public increaseCounter() {
         if (this.mounted) {
-            const time = 100 - 5 * this.state.count;
+            const time = timer - 30 * this.state.count;
             this.setState({count: this.state.count + 1});
             setTimeout(() => this.increaseCounter(), time < 0 ? 0 : time);
         }
@@ -57,7 +59,7 @@ class SOSView extends React.Component<any, SoSState> {
     public render() {
         return (
             <div className="events-container">
-                <div className="events">{
+                <div className="sos-events">{
                     helpMeView(this.state.count)
                 }
                     <div style={{float: "left", clear: "both"}}
