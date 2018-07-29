@@ -1,8 +1,8 @@
 import GameEngine from "../engine/GameEngine";
 import Location from "../engine/Location";
+import castle from './img/castle';
 import door from './img/halway';
 import mountain from './img/mountain';
-import path from './img/path';
 import {lostWoodsSection} from './sections/thelostwoods';
 
 // ascii art taken from https://www.asciiart.eu/
@@ -24,16 +24,18 @@ const l2 = new Location()
         'A wizard stands in your way and tells you "YOU SHALL NOT PASS". ' +
         'You see a path back. God himself recommends you to go back.');
 
+
+// intro -> its a door leading into the castle shadowgate
 const hungry = new Location()
-    .setId("A Cabin in the woods")
-    .setImg(mountain)
+    .setId("Castle Shadowgate") // fun fact: must have lit torch at all times in inventory
+    .setImg(castle)
     .setDesc("A shadow grows on the wall behind you, swallowing you in darkness. Its almost here...");
 
 
 const l1 = new Location()
     .setId("A new beginning")
-    .setDesc("You see a path north and a path to the lost woods")
-    .setImg(path)
+    .setDesc("You are standing in an old abandoned house. There is nothing in the room expect a closed chest")
+    .setImg(mountain)
     .link("north", l2)
     .link("hungry", hungry);
 
