@@ -18,7 +18,7 @@ import {lostWoodsSection} from './sections/thelostwoods';
 const gameEngine = new GameEngine();
 
 const l2 = new Location()
-    .setId("An old abandoned door")
+    .setId("An old, abandoned door")
     .setImg(door)
     .setDesc('The door is locked. The door is made out of metal. ' +
         'There is a broken key in the key hole. The door is welded shut. ' +
@@ -37,13 +37,13 @@ const hungry = new Location()
 const chest = new Item()
     .setLook(() => "Its an old chest. There is no lock on the chest. It should be easily opened.")
     .setUse(() => "Its open!")
-    .setTake(() => "Its too heavy. You ain't Arnold Schwarzenegger");
+    .setTake(() => "Its too heavy. You ain't Arnold Schwarzenegger.");
 // see if id is the last word in string sendt in
 // chest.on("open", (() => {l1.addItem("scroll", letter)}));
 
 const l1 = new Location()
     .setId("A new beginning")
-    .setDesc("You are standing in an old abandoned house. There is nothing in the room expect a closed chest")
+    .setDesc("You are standing in an old, abandoned house. There is nothing in the room expect a closed chest.")
     .setImg(mountain)
     .link("north", l2)
     .addItem("chest", chest)
