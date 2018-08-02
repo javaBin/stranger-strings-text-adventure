@@ -21,7 +21,7 @@ const l2 = new Location()
     .setId("An old, abandoned door")
     .setImg(door)
     .setDesc('The door is locked. The door is made out of metal. ' +
-        'There is a broken key in the key hole. The door is welded shut. ' +
+        'There is a broken key in the keyhole. The door is welded shut. ' +
         'A wizard stands in your way and tells you "YOU SHALL NOT PASS". ' +
         'You see a path back. God himself recommends you to go back.');
 
@@ -30,20 +30,20 @@ const l2 = new Location()
 const hungry = new Location()
     .setId("Castle Shadowgate") // fun fact: must have lit torch at all times in inventory
     .setImg(castle)
-    .setDesc("A shadow grows on the wall behind you, swallowing you in darkness. Its almost here...");
+    .setDesc("A shadow grows on the wall behind you, swallowing you in darkness. It's almost here...");
 
 
 
 const chest = new Item()
-    .setLook(() => "Its an old chest. There is no lock on the chest. It should be easily opened.")
-    .setUse(() => "Its open!")
+    .setLook(() => "It's an old chest. There is no lock on the chest. It should be easily opened.")
+    .setUse(() => "It's open!")
     .setTake(() => "Its too heavy. You ain't Arnold Schwarzenegger.");
 // see if id is the last word in string sendt in
 // chest.on("open", (() => {l1.addItem("scroll", letter)}));
 
 const l1 = new Location()
     .setId("A new beginning")
-    .setDesc("You are standing in an old, abandoned house. There is nothing in the room expect a closed chest.")
+    .setDesc("You are standing in an old, abandoned house. There is nothing in the room except for a closed chest.")
     .setImg(mountain)
     .link("north", l2)
     .addItem("chest", chest)
