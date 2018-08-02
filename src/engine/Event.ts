@@ -3,6 +3,7 @@ import {GameError} from "./GameError";
 export enum GameEventType {
     LOCATION_CHANGE,
     NEW_INPUT,
+    ITEM,
     HELP,
     ERROR
 }
@@ -24,9 +25,14 @@ export class NewInputEvent {
     public constructor(public input: string) {}
 }
 
+export class ItemEvent {
+    public readonly type = GameEventType.ITEM;
+    public constructor(public customText: string) {}
+}
+
 export class GameErrorEvent {
     public readonly type = GameEventType.ERROR;
     public constructor(public errorType: GameError){}
 }
 
-export type GameEvent = LocationChangeEvent | HelpEvent | NewInputEvent | GameErrorEvent;
+export type GameEvent = LocationChangeEvent | HelpEvent | NewInputEvent | ItemEvent | GameErrorEvent;

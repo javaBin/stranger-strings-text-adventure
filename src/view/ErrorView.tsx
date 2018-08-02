@@ -11,6 +11,8 @@ function errorMessage(error: GameError): string{
             return "There is no path there";
         case GameError.UNKNOWN_COMMAND:
             return "Unknown command. I don't understand that input. For a list of available command, type HELP";
+        case GameError.NO_ITEM:
+            return "Invalid command. There is no item there";
     }
 }
 

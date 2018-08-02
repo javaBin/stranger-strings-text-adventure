@@ -5,8 +5,9 @@ const helpMapper = {
     "GO": " <DIRECTION> :  e.g `go north`, or `go through door`",
     "HELP": " : shows this help text",
     "LOOK": " : repeats the room description",
-    "LOOK AT": " : e.g `look at door`",
-    "TAKE": " <OBJECT> :  e.g `take keys`"
+    "LOOK AT": "<OBJECT> : e.g `look at door`",
+    "TAKE": " <OBJECT> :  e.g `take keys`",
+    "USE": "<OBJECT> : e.g `use keys`"
 };
 
 interface HelpViewProps {

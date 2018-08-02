@@ -1,6 +1,6 @@
 import {CommandType} from "./Command";
 import {
-    GameErrorEvent, GameEvent, HelpEvent, LocationChangeEvent,
+    GameErrorEvent, GameEvent, HelpEvent, ItemEvent, LocationChangeEvent,
     NewInputEvent
 } from "./Event";
 import {GameError} from "./GameError";
@@ -45,6 +45,19 @@ class GameEngine {
                     this.events.push(new GameErrorEvent(GameError.INVALID_PATH));
                 }
                 break;
+            }
+
+            case CommandType.TAKE: {
+                // todo inventory
+                const maybeItem = this.currentLocation.items.get(rest.toLowerCase());
+                if (maybeItem){
+                    this.events.push(new ItemEvent(maybeItem.take()));
+                } else {
+                    this.events.push(new GameErrorEvent(GameError.NO_ITEM));
+                }
+
+                break
+
             }
 
             case CommandType.HELP: {

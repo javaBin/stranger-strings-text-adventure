@@ -3,6 +3,7 @@ import {GameEvent, GameEventType} from '../engine/Event';
 import CommandView from "./CommandView";
 import ErrorView from "./ErrorView";
 import HelpView from "./HelpView";
+import Item from "./Item";
 import LocationView from "./LocationView";
 
 interface EventsViewProps {
@@ -54,6 +55,12 @@ class EventsView extends React.Component<EventsViewProps, any> {
                                     description={event.description}
                                     image={event.image}/>
                             }
+
+                            case GameEventType.ITEM: {
+                                return <Item key={index}
+                                             text={event.customText}/>
+                            }
+
                             case GameEventType.HELP: {
                                 return <HelpView key={index}
                                                  visibleCommand={event.avaibleCommands}/>

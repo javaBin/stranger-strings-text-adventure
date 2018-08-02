@@ -1,4 +1,5 @@
 import GameEngine from "../engine/GameEngine";
+import Item from "../engine/Item";
 import Location from "../engine/Location";
 import castle from './img/castle';
 import door from './img/halway';
@@ -32,12 +33,22 @@ const hungry = new Location()
     .setDesc("A shadow grows on the wall behind you, swallowing you in darkness. Its almost here...");
 
 
+
+const chest = new Item()
+    .setLook(() => "Its an old chest. There is no lock on the chest. It should be easily opened.")
+    .setUse(() => "Its open!")
+    .setTake(() => "Its too heavy. You ain't Arnold Schwarzenegger");
+// see if id is the last word in string sendt in
+// chest.on("open", (() => {l1.addItem("scroll", letter)}));
+
 const l1 = new Location()
     .setId("A new beginning")
     .setDesc("You are standing in an old abandoned house. There is nothing in the room expect a closed chest")
     .setImg(mountain)
     .link("north", l2)
+    .addItem("chest", chest)
     .link("hungry", hungry);
+
 
 const lostWoods = lostWoodsSection(l1);
 

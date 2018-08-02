@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import './index.css';
-// import registerServiceWorker from './registerServiceWorker';
+import unregister from './registerServiceWorker';
 import GameIntro from "./view/intro/GameIntro";
 
 ReactDOM.render(
@@ -9,3 +9,4 @@ ReactDOM.render(
   document.getElementById('root') as HTMLElement
 );
 // registerServiceWorker(); TODO add me back
+unregister();
