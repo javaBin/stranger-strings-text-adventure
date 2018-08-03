@@ -6,9 +6,6 @@ import {
 import {GameError} from "./GameError";
 import Location from "./Location";
 
-function getCmdType(cmd: string) {
-    return CommandType[cmd];
-}
 
 class GameEngine {
 
@@ -29,14 +26,13 @@ class GameEngine {
     }
 
     public send(input: string){
-        const words = input.split(" ");
-        const cmd = words.shift();
-        const rest = words.join(" ");
-
-        const cmdType: CommandType = getCmdType(cmd!.toUpperCase());
+        const cmd = CommandType.values.find((type) =>
+            input.toLowerCase().startsWith(type.name.toLowerCase())
+        );
+        const rest = input.substr(!!cmd ? cmd.name.length + 1 : 0);
 
         this.events.push(new NewInputEvent(input));
-        switch (cmdType) {
+        switch (cmd) {
             case CommandType.GO: {
                 const maybeNewLocation = this.currentLocation.locations[rest.toLowerCase()];
                 if (maybeNewLocation) {
@@ -55,9 +51,39 @@ class GameEngine {
                 } else {
                     this.events.push(new GameErrorEvent(GameError.NO_ITEM));
                 }
+                break
+            }
+
+            case CommandType.USE: {
+                const maybeItem = this.currentLocation.items.get(rest.toLowerCase());
+                if (maybeItem){
+                    this.events.push(new ItemEvent(maybeItem.use()));
+                } else {
+                    this.events.push(new GameErrorEvent(GameError.NO_ITEM));
+                }
 
                 break
+            }
 
+            case CommandType.LOOK_AT: {
+                const maybeItem = this.currentLocation.items.get(rest.toLowerCase());
+                if (maybeItem){
+                    this.events.push(new ItemEvent(maybeItem.look()));
+                } else {
+                    this.events.push(new GameErrorEvent(GameError.NO_ITEM));
+                }
+
+                break
+            }
+
+            case CommandType.LOOK: {
+                this.events.push(
+                    new LocationChangeEvent(
+                        this.currentLocation.id,
+                        this.currentLocation.description,
+                        this.currentLocation.image)
+                );
+                break
             }
 
             case CommandType.HELP: {
@@ -67,12 +93,25 @@ class GameEngine {
             }
 
             default: {
-                this.events.push(new GameErrorEvent(GameError.UNKNOWN_COMMAND));
+                // figure out if there is a custom cmd instead
+                const itemName = Array.from(this.currentLocation.items.keys())
+                    .find((item) => input.endsWith(item));
+                const maybeItem = !!itemName ? this.currentLocation.items.get(itemName) : undefined;
+                if(!!itemName && !!maybeItem){
+                    const maybeCustomCmd = input.substr(0, input.length - (itemName.length + 1))
+                    const maybeFunc = maybeItem.customCommands.get(maybeCustomCmd)
+                    if (maybeFunc) {
+                        this.events.push(new ItemEvent(maybeFunc()));
+
+                    } else {
+                        this.events.push(new GameErrorEvent(GameError.UNKNOWN_COMMAND));
+                    }
+                } else {
+                    this.events.push(new GameErrorEvent(GameError.UNKNOWN_COMMAND));
+                }
                 break
             }
         }
-
-
     }
 
     private changeLocation(location: Location): GameEngine {

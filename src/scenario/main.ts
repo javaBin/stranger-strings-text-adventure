@@ -36,10 +36,9 @@ const hungry = new Location()
 
 const chest = new Item()
     .setLook(() => "It's an old chest. There is no lock on the chest. It should be easily opened.")
-    .setUse(() => "It's open!")
-    .setTake(() => "Its too heavy. You ain't Arnold Schwarzenegger.");
-// see if id is the last word in string sendt in
-// chest.on("open", (() => {l1.addItem("scroll", letter)}));
+    .setUse(() => "It's open2!")
+    .setTake(() => "Its too heavy. You ain't Arnold Schwarzenegger.")
+    .on("open", (() => "It's open2!"));
 
 const l1 = new Location()
     .setId("A new beginning")

@@ -4,6 +4,12 @@ class Item {
     public look: () => string;
     public take: () => string;
 
+    public customCommands: Map<string, () => string>;
+
+    constructor(){
+        this.customCommands = new Map();
+    }
+
     public setUse(use: () => string): Item {
         this.use = use;
         return this;
@@ -16,6 +22,11 @@ class Item {
 
     public setTake(take: () => string): Item{
         this.take = take;
+        return this;
+    }
+
+    public on(cmd: string, fn: () => string): Item {
+        this.customCommands.set(cmd, fn);
         return this;
     }
 }
