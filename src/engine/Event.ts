@@ -35,4 +35,8 @@ export class GameErrorEvent {
     public constructor(public errorType: GameError){}
 }
 
-export type GameEvent = LocationChangeEvent | HelpEvent | NewInputEvent | ItemEvent | GameErrorEvent;
+export type GameEvent = LocationChangeEvent |
+    HelpEvent |
+    NewInputEvent |
+    ItemEvent |
+    GameErrorEvent;
