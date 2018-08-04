@@ -1,5 +1,6 @@
 import * as React from 'react';
 import AsciiImage from "./AsciiImage";
+import Text from "./Text";
 
 interface LocationViewProps {
     id: string,
@@ -16,9 +17,9 @@ function LocationView(props: LocationViewProps) {
                 <header className="header">
                     <p className="title">--- {props.id} ---</p>
                 </header>
-                <p className="description">
-                    {props.description}
-                </p>
+                <div className="description">
+                    <Text text={props.description}/>
+                </div>
             </div>
         );
 }

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {GameError} from "../engine/GameError";
+import Text from "./Text";
 
 interface ErrorViewProps {
     error: GameError,
@@ -19,9 +20,7 @@ function errorMessage(error: GameError): string{
 function ErrorView(props: ErrorViewProps) {
     return (
         <div className="error">
-            <p>
-                {errorMessage(props.error)}
-            </p>
+            <Text text={errorMessage(props.error)}/>
         </div>
     );
 }

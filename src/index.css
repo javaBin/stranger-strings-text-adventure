@@ -50,6 +50,10 @@ input, select, textarea, button {
     padding: 1em;
 }
 
+.command-block{
+    padding-left: 1em;
+}
+
 #input {
     width: 100%;
     position: fixed;

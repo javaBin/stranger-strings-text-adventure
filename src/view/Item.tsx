@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Text from "./Text";
 
 interface ItemProps {
     text: string
@@ -7,9 +8,7 @@ interface ItemProps {
 function Item(props: ItemProps) {
     return (
         <div className="item">
-            <p>
-                {props.text}
-            </p>
+            <Text text={props.text}/>
         </div>
     );
 }

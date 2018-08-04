@@ -44,7 +44,7 @@ class GameEngine {
             }
 
             case CommandType.TAKE: {
-                // todo inventory
+                // todo inventory and remove item in location
                 const maybeItem = this.currentLocation.items.get(rest.toLowerCase());
                 if (maybeItem){
                     this.events.push(new ItemEvent(maybeItem.take()));

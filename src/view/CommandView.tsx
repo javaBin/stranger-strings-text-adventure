@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Text from "./Text";
 
 interface CommandProps {
     orignalCommand: string
@@ -7,9 +8,7 @@ interface CommandProps {
 function Command(props: CommandProps) {
         return (
             <div className="command">
-                <p>
-                    > {props.orignalCommand}
-                </p>
+                <Text text={`> ${props.orignalCommand}`} />
             </div>
         );
 }
