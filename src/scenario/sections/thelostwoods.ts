@@ -56,19 +56,19 @@ const up1 = new Location()
 
 const startLocation = new Location()
     .setId("The Lost Woods")
-    .setDesc(`You are at the entrance of the forest. 
-        The forest seems big and impossible to pass through.
-        There is a sign at the entrance: Only the truly observant may pass.    
-        You see 4 paths into the forest: left, right, up, down.
-        Or you can go back to the main road`
+    .setDesc("You are at the entrance of the forest. " +
+        "The forest seems big and impossible to pass through. " +
+        "There is a sign at the entrance: Only the truly observant may pass. \n" +
+        "You see 4 paths into the forest: left, right, up, down. " +
+        "Or you can go back"
     )
     .setImg(path);
 
 const backAtStartLocation = new Location()
     .setId("The Lost Woods")
-    .setDesc(`You got lost. But it seems your are  back at the main entrance of the forest. 
-        You see 4 paths into the forest: left, right, up, down.
-        Or you can go back to the main road`
+    .setDesc("You got lost. But it seems your are back at the main entrance of the forest. " +
+        "You see 4 paths into the forest: left, right, up, down. " +
+        "Or you can go back"
     )
     .setImg(path);
 
@@ -128,6 +128,7 @@ b.link("a", goal)
 
 export function lostWoodsSection(backLocation: Location){
     backAtStartLocation.link("back", backLocation);
+    // todo location or func ?
     return startLocation
 }
 

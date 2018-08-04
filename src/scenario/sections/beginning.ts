@@ -39,7 +39,8 @@ const letterText = "Welcome to QuestZone! \n" +
     "Legend tells of one maven artifact to rule them all. " +
     "One artifact to find them, " +
     "One artifact to import them all and in the command line bind them. \n" +
-    "FIND IT, SAVE US FROM THE EVIL MONOLITHIC EMPIRE !! TODO ADD MORE AFTER";
+    "FIND IT, SAVE US FROM THE EVIL MONOLITHIC EMPIRE!! \n" +
+    "Go west to continue your adventure.";
 
 const letter = new Item()
     .setLook(() => "It's a letter. You can probably read it")

@@ -18,4 +18,6 @@ You can find the most recent version of `create-react-app` guide [here](https://
 3: Feedback: 
     - A puzzle should help solve it self by giving feedback. Letting you know if you are on the right track
     
-     
+     // all your bases belong to us
+     // the princess is in another castle
+     // tri force of java
