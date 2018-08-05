@@ -43,7 +43,7 @@ door
     .setDesc('The door is locked. The door is made out of metal. ' +
         'There is a broken key in the keyhole. The door is welded shut. ' +
         'A wizard stands in your way and tells you "YOU SHALL NOT PASS". ' +
-        'You see a path back. God himself recommends you to go back.')
+        'You only see a path back.')
     .link("back", intersection);
 
 
