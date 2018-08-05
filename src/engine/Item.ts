@@ -2,6 +2,7 @@ class Item {
     public use: () => string;
     public look: () => string;
     public take: () => string;
+    public takeable = false;
 
     public customCommands: Map<string, () => string>;
 
@@ -16,6 +17,11 @@ class Item {
 
     public setLook(look: () => string): Item {
         this.look = look;
+        return this;
+    }
+
+    public setTakeable(value: boolean): Item {
+        this.takeable = value;
         return this;
     }
 

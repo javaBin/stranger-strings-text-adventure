@@ -8,14 +8,18 @@ import {
     NewInputEvent,
 } from './Event';
 import { GameError } from './GameError';
+import Item from './Item';
 import Location from './Location';
 
 class GameEngine {
     private currentLocation: Location;
+    private inventory: Map<string, Item>;
+
     private events: GameEvent[];
 
     constructor() {
         this.events = [];
+        this.inventory = new Map();
     }
 
     public setStartLocation(location: Location): GameEngine {
@@ -50,11 +54,13 @@ class GameEngine {
             }
 
             case CommandType.TAKE: {
-                // todo inventory and remove item in location
-                const maybeItem = this.currentLocation.items.get(
-                    rest.toLowerCase()
-                );
+                const itemName = rest.toLowerCase();
+                const maybeItem = this.currentLocation.items.get(itemName);
                 if (maybeItem) {
+                    if (maybeItem.takeable) {
+                        this.inventory.set(itemName, maybeItem);
+                        this.currentLocation.removeItem(itemName);
+                    }
                     this.events.push(new ItemEvent(maybeItem.take()));
                 } else {
                     this.events.push(new GameErrorEvent(GameError.NO_ITEM));
@@ -63,9 +69,9 @@ class GameEngine {
             }
 
             case CommandType.USE: {
-                const maybeItem = this.currentLocation.items.get(
-                    rest.toLowerCase()
-                );
+                const itemName = rest.toLowerCase();
+                const maybeItem = this.getItem(itemName);
+
                 if (maybeItem) {
                     this.events.push(new ItemEvent(maybeItem.use()));
                 } else {
@@ -75,10 +81,10 @@ class GameEngine {
                 break;
             }
 
-            case CommandType.LOOK_AT: {
-                const maybeItem = this.currentLocation.items.get(
-                    rest.toLowerCase()
-                );
+            case CommandType.LOOK: {
+                const itemName = rest.toLowerCase();
+
+                const maybeItem = this.getItem(itemName);
                 if (maybeItem) {
                     this.events.push(new ItemEvent(maybeItem.look()));
                 } else {
@@ -88,7 +94,7 @@ class GameEngine {
                 break;
             }
 
-            case CommandType.LOOK: {
+            case CommandType.DESCRIBE: {
                 this.events.push(
                     new LocationChangeEvent(
                         this.currentLocation.id,
@@ -107,12 +113,11 @@ class GameEngine {
 
             default: {
                 // figure out if there is a custom cmd instead
-                const itemName = Array.from(
-                    this.currentLocation.items.keys()
-                ).find(item => input.endsWith(item));
-                const maybeItem = !!itemName
-                    ? this.currentLocation.items.get(itemName)
-                    : undefined;
+                const itemName = Array.from(this.currentLocation.items.keys())
+                    .concat(Array.from(this.inventory.keys()))
+                    .find(item => input.endsWith(item));
+
+                const maybeItem = this.getItem(itemName);
                 if (!!itemName && !!maybeItem) {
                     const maybeCustomCmd = input.substr(
                         0,
@@ -135,6 +140,18 @@ class GameEngine {
                 }
                 break;
             }
+        }
+    }
+
+    private getItem(itemName: string | undefined): Item | undefined {
+        if (!!itemName) {
+            const locationItem = this.currentLocation.items.get(itemName);
+            if (!locationItem) {
+                return this.inventory.get(itemName);
+            }
+            return locationItem;
+        } else {
+            return undefined;
         }
     }
 

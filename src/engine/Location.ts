@@ -36,6 +36,11 @@ class Location {
         this.items.set(name.toLowerCase(), item);
         return this;
     }
+
+    public removeItem(name: string): Location {
+        this.items.delete(name.toLowerCase());
+        return this;
+    }
 }
 
 export default Location;

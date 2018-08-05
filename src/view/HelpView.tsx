@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 const helpMapper = {
+    DESCRIBE: ' : repeats the room description',
     GO: ' <DIRECTION> :  e.g `go north`, or `go through door`',
     HELP: ' : shows this help text',
-    LOOK: ' : repeats the room description',
-    'LOOK AT': ' <OBJECT> : e.g `look at door`',
+    LOOK: ' <OBJECT> : e.g `look door` to take a closer look at the door',
     TAKE: ' <OBJECT> :  e.g `take keys`',
     USE: ' <OBJECT> : e.g `use keys`',
 };

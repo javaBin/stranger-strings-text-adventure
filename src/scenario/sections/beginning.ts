@@ -45,6 +45,7 @@ const letterText = "Welcome to QuestZone! \n" +
 const letter = new Item()
     .setLook(() => "It's a letter. You can probably read it")
     .setTake(() => "You took the letter")
+    .setTakeable(true)
     .setUse(() => "You made a paper plane....\n That was fun. Lets continue the adventure")
     .on("read", () => letterText);
 
@@ -55,6 +56,8 @@ const scroll = new Item()
         start.addItem("letter", letter);
         return "You took the scroll! Something more is now visible in the chest"
     })
+    .setTakeable(true)
+    .setUse(() => "You made a origami figure....\n That was fun. Maybe you should read it?")
     .on("read", () => "To be GDPR compliant you herby accept all terms and conditions by taking this scroll!!\n" +
         "What this entails you will never know ¯\\_(ツ)_/¯")
 ;

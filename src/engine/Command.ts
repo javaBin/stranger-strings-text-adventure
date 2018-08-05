@@ -4,7 +4,7 @@ export class CommandType {
     public static readonly GO = new CommandType('GO');
     public static readonly TAKE = new CommandType('TAKE');
     public static readonly USE = new CommandType('USE');
-    public static readonly LOOK_AT = new CommandType('LOOK AT');
+    public static readonly DESCRIBE = new CommandType('DESCRIBE');
     public static readonly LOOK = new CommandType('LOOK');
     public static readonly HELP = new CommandType('HELP');
 
