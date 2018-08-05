@@ -1,4 +1,3 @@
-
 class Item {
     public use: () => string;
     public look: () => string;
@@ -6,7 +5,7 @@ class Item {
 
     public customCommands: Map<string, () => string>;
 
-    constructor(){
+    constructor() {
         this.customCommands = new Map();
     }
 
@@ -20,7 +19,7 @@ class Item {
         return this;
     }
 
-    public setTake(take: () => string): Item{
+    public setTake(take: () => string): Item {
         this.take = take;
         return this;
     }
@@ -32,5 +31,3 @@ class Item {
 }
 
 export default Item;
-
-

@@ -1,14 +1,14 @@
 import * as React from 'react';
-import Text from "./Text";
+import Text from './Text';
 
 interface ItemProps {
-    text: string
+    text: string;
 }
 
 function Item(props: ItemProps) {
     return (
         <div className="item">
-            <Text text={props.text}/>
+            <Text text={props.text} />
         </div>
     );
 }

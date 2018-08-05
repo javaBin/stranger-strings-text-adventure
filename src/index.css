@@ -9,7 +9,10 @@ body {
     line-height: 1.3em;
 }
 
-input, select, textarea, button {
+input,
+select,
+textarea,
+button {
     font-family: inherit;
     font-size: inherit;
     color: inherit;
@@ -38,11 +41,11 @@ input, select, textarea, button {
 }
 
 .image.intro {
-    line-height: 2.0vw;
+    line-height: 2vw;
 }
 
 .intro.imageLine {
-    font-size: 2.0vw;
+    font-size: 2vw;
 }
 
 .events-container {
@@ -50,7 +53,7 @@ input, select, textarea, button {
     padding: 1em;
 }
 
-.command-block{
+.command-block {
     padding-left: 1em;
 }
 
@@ -62,7 +65,7 @@ input, select, textarea, button {
     padding: 1em;
 
     display: flex; /* or inline-flex */
-    flex-direction: row
+    flex-direction: row;
 }
 
 #input-tag {
@@ -88,7 +91,8 @@ input, select, textarea, button {
     overflow-x: hidden;
 }
 
-.command-block-key, .command-block-tip {
+.command-block-key,
+.command-block-tip {
     display: inline-block;
     white-space: pre-wrap;
 }
@@ -110,6 +114,4 @@ input, select, textarea, button {
     .imageLine {
         font-size: 2.32vw;
     }
-
 }
-

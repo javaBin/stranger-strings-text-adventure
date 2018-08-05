@@ -1,18 +1,20 @@
-import {GameError} from "./GameError";
+import { GameError } from './GameError';
 
 export enum GameEventType {
     LOCATION_CHANGE,
     NEW_INPUT,
     ITEM,
     HELP,
-    ERROR
+    ERROR,
 }
 
 export class LocationChangeEvent {
     public readonly type = GameEventType.LOCATION_CHANGE;
-    public constructor(public title: string,
-                       public description: string,
-                       public image?: string) {}
+    public constructor(
+        public title: string,
+        public description: string,
+        public image?: string
+    ) {}
 }
 
 export class HelpEvent {
@@ -32,11 +34,12 @@ export class ItemEvent {
 
 export class GameErrorEvent {
     public readonly type = GameEventType.ERROR;
-    public constructor(public errorType: GameError){}
+    public constructor(public errorType: GameError) {}
 }
 
-export type GameEvent = LocationChangeEvent |
-    HelpEvent |
-    NewInputEvent |
-    ItemEvent |
-    GameErrorEvent;
+export type GameEvent =
+    | LocationChangeEvent
+    | HelpEvent
+    | NewInputEvent
+    | ItemEvent
+    | GameErrorEvent;

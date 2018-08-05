@@ -1,4 +1,4 @@
-import Item from "./Item";
+import Item from './Item';
 
 class Location {
     public id: string;
@@ -7,7 +7,7 @@ class Location {
     public locations: Map<string, Location>;
     public items: Map<string, Item>;
 
-    constructor(){
+    constructor() {
         this.locations = new Map<string, Location>();
         this.items = new Map<string, Item>();
     }
@@ -22,22 +22,20 @@ class Location {
         return this;
     }
 
-    public setImg(value: string): Location{
+    public setImg(value: string): Location {
         this.image = value;
         return this;
     }
 
-    public link(path: string, location: Location): Location{
+    public link(path: string, location: Location): Location {
         this.locations[path.toLowerCase()] = location;
         return this;
     }
 
-    public addItem(name: string, item: Item): Location{
+    public addItem(name: string, item: Item): Location {
         this.items.set(name.toLowerCase(), item);
         return this;
     }
 }
 
 export default Location;
-
-

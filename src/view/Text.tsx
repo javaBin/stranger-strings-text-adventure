@@ -5,16 +5,10 @@ interface TextProps {
 }
 
 function Text(props: TextProps) {
-    const lines =
-        props.text
-            .split('\n')
-            .map((line, index) =>
-                <p key={index}>{line}</p>);
-    return (
-        <>
-            {lines}
-        </>
-    );
+    const lines = props.text
+        .split('\n')
+        .map((line, index) => <p key={index}>{line}</p>);
+    return <>{lines}</>;
 }
 
 export default Text;
