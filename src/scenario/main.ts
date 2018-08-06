@@ -38,8 +38,6 @@ castleShadowGate
     )
     .link('back', intersection);
 
-lostWoods.link('back', intersection);
-
 door.setId('An old, abandoned door')
     .setImg(doorImg)
     .setDesc(

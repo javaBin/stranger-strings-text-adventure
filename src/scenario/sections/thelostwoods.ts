@@ -1,9 +1,21 @@
+import Item from "../../engine/Item";
 import Location from "../../engine/Location";
 import path from "../img/forest";
 
-const goal = new Location()
-    .setId("VICTORY")
-    .setDesc("YOU FOUND THE SOLUTION");
+
+export const torch = new Item()
+    .setTake(() => "You took the torch")
+    .setUse(() => "TODO")
+    .setLook(() => "It looks like a torch. You can probably use it to lighten a dark place")
+    .setTakeable(true);
+
+const final = new Location()
+    .setId("Outside the forest")
+    .setDesc("VICTORY!!!\n" +
+        "You finally arrive in a open field outside the forest. " +
+        "You see a torch lying on the ground. \n" +
+        "You see a path back out of the forest")
+    .addItem("torch", torch);
 
 const b = new Location()
     .setId("¯\\_(ツ)_/¯ deeper in the forest")
@@ -76,7 +88,8 @@ const backAtStartLocation = new Location()
 startLocation.link("left", backAtStartLocation)
     .link("right", backAtStartLocation)
     .link("down", backAtStartLocation)
-    .link("up", up1);
+    .link("up", up1)
+    .link("shortcut", final);
 
 backAtStartLocation.link("left", backAtStartLocation)
     .link("right", backAtStartLocation)
@@ -122,15 +135,14 @@ left2.link("left", backAtStartLocation)
 right2.link("a", backAtStartLocation)
     .link("b", b);
 
-b.link("a", goal)
-    .link("b", goal);
+b.link("a", final)
+    .link("b", final);
 
 
 export function lostWoodsSection(backLocation: Location){
     backAtStartLocation.link("back", backLocation);
-    // todo location or func ?
+    startLocation.link("back", backLocation);
+    final.link("back", backLocation);
+
     return startLocation
 }
-
-export default startLocation
-

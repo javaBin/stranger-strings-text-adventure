@@ -28,7 +28,7 @@ class Location {
     }
 
     public link(path: string, location: Location): Location {
-        this.locations[path.toLowerCase()] = location;
+        this.locations.set(path.toLowerCase(), location);
         return this;
     }
 
