@@ -32,17 +32,16 @@ class GameEngine {
     }
 
     public send(input: string) {
+        const lowerInput = input.toLowerCase();
         const cmd = CommandType.values.find(type =>
-            input.toLowerCase().startsWith(type.name.toLowerCase())
+            lowerInput.startsWith(type.name.toLowerCase())
         );
-        const rest = input.substr(!!cmd ? cmd.name.length + 1 : 0);
+        const rest = lowerInput.substr(!!cmd ? cmd.name.length + 1 : 0);
 
         this.events.push(new NewInputEvent(input));
         switch (cmd) {
             case CommandType.GO: {
-                const maybeNewLocation = this.currentLocation.locations[
-                    rest.toLowerCase()
-                ];
+                const maybeNewLocation = this.currentLocation.locations.get(rest);
                 if (maybeNewLocation) {
                     this.changeLocation(maybeNewLocation);
                 } else {
@@ -54,7 +53,7 @@ class GameEngine {
             }
 
             case CommandType.TAKE: {
-                const itemName = rest.toLowerCase();
+                const itemName = rest;
                 const maybeItem = this.currentLocation.items.get(itemName);
                 if (maybeItem) {
                     if (maybeItem.takeable) {
@@ -69,9 +68,7 @@ class GameEngine {
             }
 
             case CommandType.USE: {
-                const itemName = rest.toLowerCase();
-                const maybeItem = this.getItem(itemName);
-
+                const maybeItem = this.getItem(rest);
                 if (maybeItem) {
                     this.events.push(new ItemEvent(maybeItem.use()));
                 } else {
@@ -82,9 +79,7 @@ class GameEngine {
             }
 
             case CommandType.LOOK: {
-                const itemName = rest.toLowerCase();
-
-                const maybeItem = this.getItem(itemName);
+                const maybeItem = this.getItem(rest);
                 if (maybeItem) {
                     this.events.push(new ItemEvent(maybeItem.look()));
                 } else {
@@ -119,7 +114,7 @@ class GameEngine {
 
                 const maybeItem = this.getItem(itemName);
                 if (!!itemName && !!maybeItem) {
-                    const maybeCustomCmd = input.substr(
+                    const maybeCustomCmd = lowerInput.substr(
                         0,
                         input.length - (itemName.length + 1)
                     );

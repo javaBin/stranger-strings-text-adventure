@@ -28,13 +28,13 @@ intersection
     .link('south', lostWoods)
     .link('north', door);
 
-// intro -> its a door leading into the castle shadowgate
 castleShadowGate
     .setId('Castle Shadowgate') // fun fact: must have lit torch at all times in inventory
     .setImg(castle)
     .setDesc(
         'A shadow grows on the wall behind you, ' +
-            "swallowing you in darkness. It's almost here..."
+            "swallowing you in darkness. It's almost here...\n" +
+            "It's to dark to continue. You need to go back"
     )
     .link('back', intersection);
 
@@ -51,7 +51,6 @@ door.setId('An old, abandoned door')
     .link('back', intersection);
 
 startSection.link('hungry', castleShadowGate); // shortcut for redAnt
-
 const gameEngine = new GameEngine();
 gameEngine.setStartLocation(startSection);
 
