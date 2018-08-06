@@ -11,7 +11,7 @@ export const torch = new Item()
 
 const final = new Location()
     .setId("Outside the forest")
-    .setDesc("VICTORY!!!\n" +
+    .setDesc("FINALLY!!!\n" +
         "You finally arrive in a open field outside the forest. " +
         "You see a torch lying on the ground. \n" +
         "You see a path back out of the forest")

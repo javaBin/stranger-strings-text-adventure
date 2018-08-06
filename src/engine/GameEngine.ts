@@ -12,7 +12,7 @@ import Item from './Item';
 import Location from './Location';
 
 class GameEngine {
-    private currentLocation: Location;
+    public currentLocation: Location;
     private inventory: Map<string, Item>;
 
     private events: GameEvent[];
