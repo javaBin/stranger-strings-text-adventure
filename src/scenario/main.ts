@@ -50,11 +50,13 @@ castleShadowGate
     .link("through main gate", insideCastle);
 
 
-const riddle = "Voiceless it cries, " +
+const riddle =
+    "The lonely door is an illusion. Solve me to figure out a way through: \n" +
+    "Voiceless it cries, " +
     "Wingless flutters, " +
     "Toothless bites, " +
     "Mouthless mutters. " +
-    "\n What am I?";
+    "\n What am I? Go with me through the door";
 
 const poster = new Item()
     .setUse(() => riddle)
@@ -62,9 +64,9 @@ const poster = new Item()
     .setLook(() => riddle);
 
 insideCastle
-    .setId("Innside the castle")
+    .setId("Inside the castle")
     .setImg(inside)
-    .setDesc("You see a poster on the wall")
+    .setDesc("The castle is big and ominous. But the only thing you find inside is a poster on the wall")
     .addItem("poster", poster);
 
 torch.setUse(() => {
@@ -74,7 +76,7 @@ torch.setUse(() => {
     return "Can't use that here"
 });
 
-door.setId('An old, abandoned door')
+door.setId('The lonely door')
     .setImg(doorImg)
     .setDesc(
         'The door is locked. The door is made out of metal. ' +
@@ -88,8 +90,8 @@ door.setId('An old, abandoned door')
     .link('with wind', james);
 
 
-new Item()
-    .setTake(() => "You took the punchcard")
+const punchCard = new Item()
+    .setTake(() => "You took the punch card")
     .setTakeable(true)
     .setUse(() => "TODO YOUTUBE LINK")
     .setLook(() => "TODO YOUTUBE LINK");
@@ -100,7 +102,8 @@ james.setId('The architect named James')
         "Unfortunately there is no legendary artifact. We have tried to make it, but failed many times. " +
         "But there is a place of ultimate knowledge where monolithic architectures seems like a ting of the past " +
         "See you at JavaZone 2018 =) \n" +
-        "He hands you a punchcard");
+        "He hands you a punch card")
+    .addItem("punch card", punchCard);
 
 startSection.link('hungry', castleShadowGate); // shortcut for redAnt
 
