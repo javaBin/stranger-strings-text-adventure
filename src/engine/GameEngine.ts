@@ -90,13 +90,7 @@ class GameEngine {
             }
 
             case CommandType.DESCRIBE: {
-                this.events.push(
-                    new LocationChangeEvent(
-                        this.currentLocation.id,
-                        this.currentLocation.description,
-                        this.currentLocation.image
-                    )
-                );
+                this.changeLocation(this.currentLocation);
                 break;
             }
 
@@ -156,7 +150,8 @@ class GameEngine {
             new LocationChangeEvent(
                 location.id,
                 location.description,
-                location.image
+                location.image,
+                location.imageAlt
             )
         );
         return this;

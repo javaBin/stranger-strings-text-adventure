@@ -31,6 +31,7 @@ intersection
             "There is also a path north, but you don't see what it leads to."
     )
     .setImg(intersectionImg)
+    .setImgAlt("A image of an intersection in a desert")
     .link('west', castleShadowGate)
     .link('south', lostWoods)
     .link('north', door);
@@ -38,6 +39,7 @@ intersection
 castleShadowGate
     .setId('Castle Shadowgate')
     .setImg(castle)
+    .setImgAlt("A image of an ominous castle")
     .setDesc(
         'A shadow grows on the wall behind you, ' +
             "swallowing you in darkness. It's almost here...\n" +
@@ -66,6 +68,7 @@ const poster = new Item()
 insideCastle
     .setId("Inside the castle")
     .setImg(inside)
+    .setImgAlt("Image of some halls inside the castle")
     .setDesc("The castle is big and ominous. But the only thing you find inside is a poster on the wall")
     .addItem("poster", poster);
 
@@ -78,6 +81,7 @@ torch.setUse(() => {
 
 door.setId('The lonely door')
     .setImg(doorImg)
+    .setImgAlt("Image of a door")
     .setDesc(
         'The door is locked. The door is made out of metal. ' +
             'There is a broken key in the keyhole. The door is welded shut. ' +
@@ -98,6 +102,7 @@ const punchCard = new Item()
 
 james.setId('The architect named James')
     .setImg(gosling)
+    .setImgAlt("A image of a strange old bold man")
     .setDesc("Congratulations! You have cleared the game. \n " +
         "Unfortunately there is no legendary artifact. We have tried to make it, but failed many times. " +
         "But there is a place of ultimate knowledge where monolithic architectures seems like a ting of the past " +

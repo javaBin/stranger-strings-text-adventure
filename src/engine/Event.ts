@@ -13,7 +13,8 @@ export class LocationChangeEvent {
     public constructor(
         public title: string,
         public description: string,
-        public image?: string
+        public image?: string,
+        public imageAlt?: string
     ) {}
 }
 

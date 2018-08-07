@@ -4,6 +4,7 @@ class Location {
     public id: string;
     public description: string;
     public image?: string;
+    public imageAlt?: string;
     public locations: Map<string, Location>;
     public items: Map<string, Item>;
 
@@ -24,6 +25,11 @@ class Location {
 
     public setImg(value: string): Location {
         this.image = value;
+        return this;
+    }
+
+    public setImgAlt(value: string): Location {
+        this.imageAlt = value;
         return this;
     }
 

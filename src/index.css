@@ -101,6 +101,22 @@ button {
     margin: 0;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.title {
+    font-weight: normal;
+    font-size: 1em;
+}
+
 @media (max-width: 481px) {
     /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
     body {

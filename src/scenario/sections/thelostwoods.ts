@@ -5,7 +5,6 @@ import path from "../img/forest";
 
 export const torch = new Item()
     .setTake(() => "You took the torch")
-    .setUse(() => "TODO")
     .setLook(() => "It looks like a torch. You can probably use it to lighten a dark place")
     .setTakeable(true);
 
@@ -74,7 +73,8 @@ const startLocation = new Location()
         "You see 4 paths into the forest: left, right, up, down. " +
         "Or you can go back"
     )
-    .setImg(path);
+    .setImg(path)
+    .setImgAlt("Image of a forest. You can barely see the letters: K O N A M I C O D E in the trees");
 
 const backAtStartLocation = new Location()
     .setId("The Lost Woods")
@@ -82,7 +82,8 @@ const backAtStartLocation = new Location()
         "You see 4 paths into the forest: left, right, up, down. " +
         "Or you can go back"
     )
-    .setImg(path);
+    .setImg(path)
+    .setImgAlt("Image of a forest. You can barely see the letters: K O N A M I C O D E in the trees");
 
 
 startLocation.link("left", backAtStartLocation)

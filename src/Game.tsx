@@ -55,7 +55,7 @@ class Game extends React.Component<any, AppState> {
 
     public render() {
         return (
-            <div id="game">
+            <div id="game-content">
                 {this.state.renderSOS ?
                     <SOSView/> :
                     <GameView events={this.state.events}/>
@@ -63,6 +63,7 @@ class Game extends React.Component<any, AppState> {
                 <span id="input">
                     <div id="input-tag">{'> '}</div>
                     <input id="input-element"
+                           aria-label="game input"
                            ref={(input: HTMLInputElement) => {
                                this.nameInput = input;
                            }}

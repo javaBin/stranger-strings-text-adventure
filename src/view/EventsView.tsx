@@ -58,6 +58,7 @@ class EventsView extends React.Component<EventsViewProps, any> {
                                         id={event.title}
                                         description={event.description}
                                         image={event.image}
+                                        imageAlt={event.imageAlt}
                                     />
                                 );
                             }
