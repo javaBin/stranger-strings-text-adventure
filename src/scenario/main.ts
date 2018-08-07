@@ -75,12 +75,19 @@ const poster = new Item()
     .setTake(() => "It's stuck to the wall")
     .setLook(() => riddle);
 
+
 insideCastle
     .setId("Inside the castle")
     .setImg(inside)
     .setImgAlt("Image of some halls inside the castle")
-    .setDesc("The castle is big and ominous. But the only thing you find inside is a poster on the wall")
-    .addItem("poster", poster);
+    .setDesc("The castle is big and ominous. But the only thing of interest you could find was a poster")
+    .addItem("poster", poster)
+    .link("back", intersection)
+    .link("intersection", intersection)
+    .link("to intersection", intersection)
+    .link("main", intersection)
+    .link("main road", intersection)
+    .link("castle", castleShadowGate);
 
 torch.setUse(() => {
     if(gameEngine.currentLocation === castleShadowGate){
@@ -114,10 +121,10 @@ james.setId('The architect named James')
     .setImg(gosling)
     .setImgAlt("A image of a strange old bold man")
     .setDesc("Congratulations! You have cleared the game. \n " +
-        "Unfortunately there is no legendary artifact. We have tried to make it, but failed many times. " +
-        "But there is a place of ultimate knowledge where monolithic architectures seems like a ting of the past " +
-        "See you at JavaZone 2018 =) \n" +
-        "He hands you a punch card")
+        "James: Unfortunately there is no legendary artifact. We have tried to make it, but failed many times. " +
+        "But there is a place of ultimate knowledge where monolithic architectures seems like a ting of the past. " +
+        "See you at JavaZone 2018! \n" +
+        "He hands you a punch card.")
     .addItem("punch card", punchCard);
 
 startSection.link('hungry', castleShadowGate); // shortcut for redAnt
