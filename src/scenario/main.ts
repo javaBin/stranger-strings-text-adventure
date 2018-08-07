@@ -27,13 +27,17 @@ intersection
     .setDesc(
         'You arrive at an intersection. \n' +
             'To the west you see an ominous castle. ' +
-            'To the south you see an beginning of a forest. ' +
+            'To the south you see a beginning of a forest. ' +
             "There is also a path north, but you don't see what it leads to."
     )
     .setImg(intersectionImg)
     .setImgAlt("A image of an intersection in a desert")
     .link('west', castleShadowGate)
+    .link('to castle', castleShadowGate)
+    .link('castle', castleShadowGate)
     .link('south', lostWoods)
+    .link('forest', lostWoods)
+    .link('to forest', lostWoods)
     .link('north', door);
 
 castleShadowGate
@@ -43,12 +47,18 @@ castleShadowGate
     .setDesc(
         'A shadow grows on the wall behind you, ' +
             "swallowing you in darkness. It's almost here...\n" +
-            "It's to dark to continue. You need to go back"
+            "It's to dark to continue without a light source. You need to go back."
     )
     .link('back', intersection)
+    .link("gates", insideCastle)
+    .link("through gates", insideCastle)
+    .link("gate", insideCastle)
+    .link("through gate", insideCastle)
     .link("main gate", insideCastle)
     .link("main gates", insideCastle)
     .link("through main gates", insideCastle)
+    .link("through the main gates", insideCastle)
+    .link("through the main gate", insideCastle)
     .link("through main gate", insideCastle);
 
 

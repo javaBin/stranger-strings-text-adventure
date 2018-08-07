@@ -39,7 +39,7 @@ class EventsView extends React.Component<EventsViewProps, any> {
     public render() {
         return (
             <div className="events-container">
-                <div className="events">
+                <div className="events" aria-live="assertive">
                     {this.props.events.map((event, index) => {
                         switch (event.type) {
                             case GameEventType.NEW_INPUT: {

@@ -21,3 +21,8 @@ You can find the most recent version of `create-react-app` guide [here](https://
      // all your bases belong to us
      // the princess is in another castle
      // tri force of java
+
+
+TODO: 
+- Inventory
+- LS instead of describe

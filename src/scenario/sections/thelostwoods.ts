@@ -4,30 +4,37 @@ import path from "../img/forest";
 
 
 export const torch = new Item()
-    .setTake(() => "You took the torch")
+    .setTake(() => {
+        final.setDesc("FINALLY!!!\n" +
+            "You finally out of the forest. " +
+            "You see a path back out of the forest");
+        return "You took the torch"
+    })
     .setLook(() => "It looks like a torch. You can probably use it to lighten a dark place")
     .setTakeable(true);
 
+// thumps up ascii on final
+
 const final = new Location()
-    .setId("Outside the forest")
+    .setId("Out of the forest")
     .setDesc("FINALLY!!!\n" +
-        "You finally arrive in a open field outside the forest. " +
+        "You finally out of the forest. " +
         "You see a torch lying on the ground. \n" +
-        "You see a path back out of the forest")
+        "You see a path back back to the intersection")
     .addItem("torch", torch);
 
 const b = new Location()
-    .setId("¯\\_(ツ)_/¯ deeper in the forest")
+    .setId("¯\\_(ツ)_/¯ Uhm... Deeper in the forest?")
     .setDesc("You went to B. You arrive at an intersection in the forest." +
         " You see 2 marked paths you can take: A, B");
 
 const right2 = new Location()
-    .setId("I don't know any more adverbs deep in the forest")
+    .setId("I-don't-know-any-more-adverbs-for-deep in the forest")
     .setDesc("You went right. You arrive at an intersection in the forest." +
         " You see 2 marked paths you can take: A, B");
 
 const left2 = new Location()
-    .setId("Almost at the end deep in the woods")
+    .setId("Almost-at-the-end-deep in the woods")
     .setDesc("You went left. You arrive at an intersection in the forest." +
         " You see 4 path different paths you can take: left, right, up, down.");
 
@@ -136,14 +143,20 @@ left2.link("left", backAtStartLocation)
 right2.link("a", backAtStartLocation)
     .link("b", b);
 
-b.link("a", final)
+b.link("a", backAtStartLocation)
     .link("b", final);
 
 
 export function lostWoodsSection(backLocation: Location){
     backAtStartLocation.link("back", backLocation);
+    backAtStartLocation.link("intersection", backLocation);
+    backAtStartLocation.link("to intersection", backLocation);
     startLocation.link("back", backLocation);
+    startLocation.link("intersection", backLocation);
+    startLocation.link("to intersection", backLocation);
     final.link("back", backLocation);
+    final.link("intersection", backLocation);
+    final.link("to intersection", backLocation);
 
     return startLocation
 }

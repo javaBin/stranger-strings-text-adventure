@@ -34,13 +34,14 @@ start.addItem("chest", chest);
 
 
 const letterText = "Welcome to QuestZone! \n" +
-    "QuestZone is a game of adventure and low cunning. " +
-    "In it you will explore some of the most amazing territory never seen by mortals. " +
-    "Your task should you accept it is to find the legendary artifact. \n" +
-    "Legend tells of one maven artifact to rule them all. " +
+    "QuestZone is a game of adventure, danger and low cunning. " +
+    "In it you will explore some of the most amazing territory ever seen by mortals. " +
+    "No computer should be without one. " +
+    "Your mission, should you choose to accept it, is to find the legendary artifact. \n" +
+    "Legend tells of one Maven artifact to rule them all. " +
     "One artifact to find them, " +
     "One artifact to import them all and in the command line bind them. \n" +
-    "FIND IT, SAVE US FROM THE EVIL MONOLITHIC EMPIRE!! \n" +
+    "FIND IT! SAVE US FROM THE EVIL MONOLITHIC EMPIRE!! \n" +
     "Go west to continue your adventure.";
 
 const letter = new Item()
@@ -55,7 +56,7 @@ const scroll = new Item()
     .setTake(() => {
         chest.setLook(() => "The chest is open. You can see a letter inside.");
         start.addItem("letter", letter);
-        return "You took the scroll! Something more is now visible in the chest"
+        return "You took the scroll! You can now see something else in the chest"
     })
     .setTakeable(true)
     .setUse(() => "You made a origami figure....\n That was fun. Maybe you should read it?")
