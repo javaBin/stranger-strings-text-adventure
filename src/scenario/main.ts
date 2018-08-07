@@ -1,6 +1,8 @@
 import GameEngine from '../engine/GameEngine';
+import Item from "../engine/Item";
 import Location from '../engine/Location';
 import castle from './img/castle';
+import gosling from "./img/gosling";
 import doorImg from './img/halway';
 import inside from "./img/inside";
 import intersectionImg from './img/intersection';
@@ -16,6 +18,7 @@ const castleShadowGate = new Location();
 const lostWoods = lostWoodsSection(intersection);
 const door = new Location();
 const insideCastle = new Location();
+const james = new Location();
 
 startSection.link('west', intersection);
 
@@ -46,11 +49,23 @@ castleShadowGate
     .link("through main gates", insideCastle)
     .link("through main gate", insideCastle);
 
+
+const riddle = "Voiceless it cries, " +
+    "Wingless flutters, " +
+    "Toothless bites, " +
+    "Mouthless mutters. " +
+    "\n What am I?";
+
+const poster = new Item()
+    .setUse(() => riddle)
+    .setTake(() => "It's stuck to the wall")
+    .setLook(() => riddle);
+
 insideCastle
     .setId("Innside the castle")
     .setImg(inside)
-    .setDesc("TODO");
-
+    .setDesc("You see a poster on the wall")
+    .addItem("poster", poster);
 
 torch.setUse(() => {
     if(gameEngine.currentLocation === castleShadowGate){
@@ -67,7 +82,25 @@ door.setId('An old, abandoned door')
             'A wizard stands in your way and tells you "YOU SHALL NOT PASS". ' +
             'You only see a path back.'
     )
-    .link('back', intersection);
+    .link('back', intersection)
+    .link('wind', james)
+    .link('with the wind', james)
+    .link('with wind', james);
+
+
+new Item()
+    .setTake(() => "You took the punchcard")
+    .setTakeable(true)
+    .setUse(() => "TODO YOUTUBE LINK")
+    .setLook(() => "TODO YOUTUBE LINK");
+
+james.setId('The architect named James')
+    .setImg(gosling)
+    .setDesc("Congratulations! You have cleared the game. \n " +
+        "Unfortunately there is no legendary artifact. We have tried to make it, but failed many times. " +
+        "But there is a place of ultimate knowledge where monolithic architectures seems like a ting of the past " +
+        "See you at JavaZone 2018 =) \n" +
+        "He hands you a punchcard");
 
 startSection.link('hungry', castleShadowGate); // shortcut for redAnt
 
