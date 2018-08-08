@@ -121,8 +121,8 @@ james.setId('The architect named James')
     .setImg(gosling)
     .setImgAlt("A image of a strange old bold man")
     .setDesc("Congratulations! You have cleared the game. \n " +
-        "James: Unfortunately there is no legendary artifact. We have tried to make it, but failed many times. " +
-        "But there is a place of ultimate knowledge where monolithic architectures seem like a ting of the past. " +
+        "James: Unfortunately, there is no legendary artifact. We have tried to create it, but failed. Many times. " +
+        "However, there is a place of ultimate knowledge, where monolithic architectures seem like a ting of the past. " +
         "See you at JavaZone 2018! \n" +
         "He hands you a punch card.")
     .addItem("punch card", punchCard);

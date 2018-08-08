@@ -25,9 +25,9 @@ const openChest = () => {
 };
 
 const chest = new Item()
-    .setLook(() => "It's an old chest. There is no lock on the chest. It should be easily opened.")
+    .setLook(() => "It's an old chest. There is no lock on the chest. It should be easy to open it.")
     .setUse(openChest)
-    .setTake(() => "Its too heavy. You ain't Arnold Schwarzenegger.")
+    .setTake(() => "It's too heavy. You ain't Arnold Schwarzenegger.")
     .on("open", openChest);
 
 start.addItem("chest", chest);
@@ -40,7 +40,7 @@ const letterText = "Welcome to QuestZone! \n" +
     "Your mission, should you choose to accept it, is to find the legendary artifact. \n" +
     "Legend tells of one Maven artifact to rule them all. " +
     "One artifact to find them, " +
-    "One artifact to import them all and in the command line bind them. \n" +
+    "one artifact to import them all and in the command line bind them. \n" +
     "FIND IT! SAVE US FROM THE EVIL MONOLITHIC EMPIRE!! \n" +
     "Go west to continue your adventure.";
 
@@ -59,7 +59,7 @@ const scroll = new Item()
         return "You took the scroll! You can now see something else in the chest."
     })
     .setTakeable(true)
-    .setUse(() => "You made a origami figure...\n That was fun. Maybe you should read it?")
+    .setUse(() => "You made an origami figure...\n That was fun. Maybe you should read it?")
     .on("read", () => "To be GDPR compliant you herby accept all terms and conditions by taking this scroll!!\n" +
         "What this entails you will never know ¯\\_(ツ)_/¯")
 ;
