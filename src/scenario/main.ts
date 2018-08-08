@@ -80,7 +80,7 @@ insideCastle
     .setId("Inside the castle")
     .setImg(inside)
     .setImgAlt("Image of some halls inside the castle")
-    .setDesc("The castle is big and ominous. But the only thing of interest you could find was a poster")
+    .setDesc("The castle is big and ominous. But the only thing of interest you could find was a poster.")
     .addItem("poster", poster)
     .link("back", intersection)
     .link("intersection", intersection)
@@ -91,7 +91,7 @@ insideCastle
 
 torch.setUse(() => {
     if(gameEngine.currentLocation === castleShadowGate){
-        return "It worked!! You can see a path through the main gates"
+        return "It worked!! You can see a path through the main gates."
     }
     return "Can't use that here"
 });

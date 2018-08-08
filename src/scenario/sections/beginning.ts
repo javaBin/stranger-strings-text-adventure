@@ -16,7 +16,7 @@ let opened = false;
 const openChest = () => {
     if (!opened){
         start.addItem("scroll", scroll);
-        chest.setLook(() => "The chest is open. You can see a scroll inside");
+        chest.setLook(() => "The chest is open. You can see a scroll inside.");
         opened = true;
         return "You opened the chest. Inside there is a scroll."
     }
@@ -48,7 +48,7 @@ const letter = new Item()
     .setLook(() => "It's a letter. You can probably read it.")
     .setTake(() => "You took the letter.")
     .setTakeable(true)
-    .setUse(() => "You made a paper plane....\n That was fun. Lets continue the adventure")
+    .setUse(() => "You made a paper plane...\n That was fun. Let's continue the adventure.")
     .on("read", () => letterText);
 
 const scroll = new Item()
