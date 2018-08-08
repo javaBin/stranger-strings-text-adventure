@@ -34,8 +34,8 @@ start.addItem("chest", chest);
 
 
 const letterText = "Welcome to QuestZone! \n" +
-    "QuestZone is a game of adventure, danger and low cunning. " +
-    "In it you will explore some of the most amazing territory ever seen by mortals. " +
+    "QuestZone is a game of adventure, danger, and low cunning. " +
+    "In it, you will explore some of the most amazing territory ever seen by mortals. " +
     "No computer should be without one. " +
     "Your mission, should you choose to accept it, is to find the legendary artifact. \n" +
     "Legend tells of one Maven artifact to rule them all. " +
@@ -45,8 +45,8 @@ const letterText = "Welcome to QuestZone! \n" +
     "Go west to continue your adventure.";
 
 const letter = new Item()
-    .setLook(() => "It's a letter. You can probably read it")
-    .setTake(() => "You took the letter")
+    .setLook(() => "It's a letter. You can probably read it.")
+    .setTake(() => "You took the letter.")
     .setTakeable(true)
     .setUse(() => "You made a paper plane....\n That was fun. Lets continue the adventure")
     .on("read", () => letterText);
@@ -56,10 +56,10 @@ const scroll = new Item()
     .setTake(() => {
         chest.setLook(() => "The chest is open. You can see a letter inside.");
         start.addItem("letter", letter);
-        return "You took the scroll! You can now see something else in the chest"
+        return "You took the scroll! You can now see something else in the chest."
     })
     .setTakeable(true)
-    .setUse(() => "You made a origami figure....\n That was fun. Maybe you should read it?")
+    .setUse(() => "You made a origami figure...\n That was fun. Maybe you should read it?")
     .on("read", () => "To be GDPR compliant you herby accept all terms and conditions by taking this scroll!!\n" +
         "What this entails you will never know ¯\\_(ツ)_/¯")
 ;

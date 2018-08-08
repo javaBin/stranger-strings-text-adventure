@@ -7,10 +7,10 @@ export const torch = new Item()
     .setTake(() => {
         final.setDesc("FINALLY!!!\n" +
             "You finally out of the forest. " +
-            "You see a path back out of the forest");
-        return "You took the torch"
+            "You see a path back out of the forest.");
+        return "You took the torch."
     })
-    .setLook(() => "It looks like a torch. You can probably use it to lighten a dark place")
+    .setLook(() => "It looks like a torch. You can probably use it to lighten a dark place.")
     .setTakeable(true);
 
 // thumps up ascii on final
@@ -20,18 +20,18 @@ const final = new Location()
     .setDesc("FINALLY!!!\n" +
         "You finally out of the forest. " +
         "You see a torch lying on the ground. \n" +
-        "You see a path back back to the intersection")
+        "You see a path back to the intersection.")
     .addItem("torch", torch);
 
 const b = new Location()
     .setId("¯\\_(ツ)_/¯ Uhm... Deeper in the forest?")
     .setDesc("You went to B. You arrive at an intersection in the forest." +
-        " You see 2 marked paths you can take: A, B");
+        " You see 2 marked paths you can take: A, B.");
 
 const right2 = new Location()
     .setId("I-don't-know-any-more-adverbs-for-deep in the forest")
     .setDesc("You went right. You arrive at an intersection in the forest." +
-        " You see 2 marked paths you can take: A, B");
+        " You see 2 marked paths you can take: A, B.");
 
 const left2 = new Location()
     .setId("Almost-at-the-end-deep in the woods")
@@ -78,16 +78,16 @@ const startLocation = new Location()
         "The forest seems big and impossible to pass through. " +
         "There is a sign at the entrance: Only the truly observant may pass. \n" +
         "You see 4 paths into the forest: left, right, up, down. " +
-        "Or you can go back"
+        "Or you can go back."
     )
     .setImg(path)
     .setImgAlt("Image of a forest. You can barely see the letters: K O N A M I C O D E in the trees");
 
 const backAtStartLocation = new Location()
     .setId("The Lost Woods")
-    .setDesc("You got lost. But it seems your are back at the main entrance of the forest. " +
+    .setDesc("You got lost. But it seems you are back at the main entrance of the forest. " +
         "You see 4 paths into the forest: left, right, up, down. " +
-        "Or you can go back"
+        "Or you can go back."
     )
     .setImg(path)
     .setImgAlt("Image of a forest. You can barely see the letters: K O N A M I C O D E in the trees");
