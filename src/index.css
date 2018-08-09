@@ -4,7 +4,6 @@ body {
     font-family: 'VT323', monospace;
     color: #00ee00;
     background: #111111;
-    /*font-size: 1.5em;*/
     font-size: 2.5em;
     line-height: 1.3em;
 }
@@ -32,15 +31,13 @@ button {
 
 .game-intro-subtitle {
     font-weight: normal;
-    /*font-size: 1.5em;*/
-    font-size: 2.5em;
+    font-size: 1.5em;
     text-align: center;
 }
 
 .game-intro-enter {
     font-weight: normal;
-    /*font-size: 1em;*/
-    font-size: 1.5em;
+    font-size: 1em;
     text-align: center;
 }
 
@@ -49,7 +46,7 @@ button {
 }
 
 .intro.imageLine {
-    font-size: 2vw;
+    font-size: 1.75vw;
 }
 
 .events-container {

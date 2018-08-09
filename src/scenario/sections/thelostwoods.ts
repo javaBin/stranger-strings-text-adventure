@@ -1,6 +1,7 @@
 import Item from "../../engine/Item";
 import Location from "../../engine/Location";
 import path from "../img/forest";
+import thumpsup from "../img/thumpsup";
 
 
 export const torch = new Item()
@@ -13,10 +14,10 @@ export const torch = new Item()
     .setLook(() => "It looks like a torch. You can probably use it to lighten a dark place.")
     .setTakeable(true);
 
-// thumps up ascii on final
-
 const final = new Location()
     .setId("Out of the forest")
+    .setImg(thumpsup)
+    .setImgAlt("Image of a thumps up")
     .setDesc("FINALLY!!!\n" +
         "You finally out of the forest. " +
         "You see a torch lying on the ground. \n" +
