@@ -3,6 +3,7 @@ import { GameEvent, GameEventType } from '../engine/Event';
 import CommandView from './CommandView';
 import ErrorView from './ErrorView';
 import HelpView from './HelpView';
+import Inventory from "./Inventory";
 import Item from './Item';
 import LocationView from './LocationView';
 
@@ -66,6 +67,12 @@ class EventsView extends React.Component<EventsViewProps, any> {
                             case GameEventType.ITEM: {
                                 return (
                                     <Item key={index} text={event.customText} />
+                                );
+                            }
+
+                            case GameEventType.INVENTORY: {
+                                return (
+                                    <Inventory key={index} items={event.items} />
                                 );
                             }
 

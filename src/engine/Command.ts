@@ -3,8 +3,9 @@ export class CommandType {
 
     public static readonly GO = new CommandType('GO');
     public static readonly TAKE = new CommandType('TAKE');
+    public static readonly INVENTORY = new CommandType('INVENTORY');
     public static readonly USE = new CommandType('USE');
-    public static readonly DESCRIBE = new CommandType('DESCRIBE');
+    public static readonly LS = new CommandType('LS');
     public static readonly LOOK = new CommandType('LOOK');
     public static readonly HELP = new CommandType('HELP');
 

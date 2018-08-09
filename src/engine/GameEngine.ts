@@ -2,7 +2,7 @@ import { CommandType } from './Command';
 import {
     GameErrorEvent,
     GameEvent,
-    HelpEvent,
+    HelpEvent, InventoryEvent,
     ItemEvent,
     LocationChangeEvent,
     NewInputEvent,
@@ -89,8 +89,13 @@ class GameEngine {
                 break;
             }
 
-            case CommandType.DESCRIBE: {
+            case CommandType.LS: {
                 this.changeLocation(this.currentLocation);
+                break;
+            }
+
+            case CommandType.INVENTORY: {
+                this.events.push(new InventoryEvent(Array.from(this.inventory.keys())));
                 break;
             }
 
