@@ -41,6 +41,12 @@ button {
     text-align: center;
 }
 
+.game-intro-credits {
+    font-weight: normal;
+    font-size: 0.7em;
+    text-align: center;
+}
+
 .image.intro {
     line-height: 2vw;
 }
