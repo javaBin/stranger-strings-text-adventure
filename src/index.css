@@ -9,6 +9,10 @@ body {
     line-height: 1.3em;
 }
 
+a {
+    color: #3366CC;
+}
+
 input,
 select,
 textarea,

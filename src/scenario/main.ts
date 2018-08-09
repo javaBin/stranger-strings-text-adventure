@@ -114,8 +114,8 @@ door.setId('The lonely door')
 const punchCard = new Item()
     .setTake(() => "You took the punch card")
     .setTakeable(true)
-    .setUse(() => "TODO YOUTUBE LINK")
-    .setLook(() => "TODO YOUTUBE LINK");
+    .setUse(() => "https://youtu.be/kLO1djacsfg?t=3m6s") // TODO change me
+    .setLook(() => "https://youtu.be/kLO1djacsfg?t=3m6s"); // TODO change me
 
 james.setId('The architect named James')
     .setImg(gosling)
