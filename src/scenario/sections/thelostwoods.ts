@@ -144,8 +144,8 @@ left2.link("left", backAtStartLocation)
 right2.link("a", backAtStartLocation)
     .link("b", b);
 
-b.link("a", backAtStartLocation)
-    .link("b", final);
+b.link("a", final)
+    .link("b", backAtStartLocation);
 
 
 export function lostWoodsSection(backLocation: Location){
