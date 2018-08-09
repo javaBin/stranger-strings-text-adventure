@@ -62,7 +62,7 @@ const scroll = new Item()
     })
     .setTakeable(true)
     .setUse(() => "You made an origami figure...\n That was fun. Maybe you should read it?")
-    .on("read", () => "To be GDPR compliant you herby accept all terms and conditions by taking this scroll!!\n" +
+    .on("read", () => "To be GDPR compliant you herby accept all terms and conditions by TAKING this scroll!!\n" +
         "What this entails you will never know ¯\\_(ツ)_/¯")
 ;
 
