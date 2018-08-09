@@ -17,6 +17,8 @@ const openChest = () => {
     if (!opened){
         start.addItem("scroll", scroll);
         chest.setLook(() => "The chest is open. You can see a scroll inside.");
+        start.setDesc("You are standing in an old, abandoned house. " +
+        "There is nothing in the room except for a open chest.");
         opened = true;
         return "You opened the chest. Inside there is a scroll."
     }
