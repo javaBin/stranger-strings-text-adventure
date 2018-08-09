@@ -82,7 +82,7 @@ const startLocation = new Location()
         "Or you can go back."
     )
     .setImg(path)
-    .setImgAlt("Image of a forest. You can barely see the letters: K O N A M I C O D E in the trees");
+    .setImgAlt("Image of a forest. You can barely see the letters: C K O N A M I O E D in the trees");
 
 const backAtStartLocation = new Location()
     .setId("The Lost Woods")
@@ -91,7 +91,7 @@ const backAtStartLocation = new Location()
         "Or you can go back."
     )
     .setImg(path)
-    .setImgAlt("Image of a forest. You can barely see the letters: K O N A M I C O D E in the trees");
+    .setImgAlt("Image of a forest. You can barely see the letters: C K O N A M I O E D in the trees");
 
 
 startLocation.link("left", backAtStartLocation)
