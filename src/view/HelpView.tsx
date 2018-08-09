@@ -23,8 +23,6 @@ function HelpView(props: HelpViewProps) {
         </div>
     ));
 
-    console.log(Object.keys(props.visibleCommand));
-    console.log(helpBlock);
     return (
         <div className="help">
             <div className="help-description">

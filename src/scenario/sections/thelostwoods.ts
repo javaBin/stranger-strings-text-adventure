@@ -14,7 +14,7 @@ export const torch = new Item()
     .setLook(() => "It looks like a torch. You can probably use it to lighten a dark place.")
     .setTakeable(true);
 
-const final = new Location()
+export const final = new Location()
     .setId("Out of the forest")
     .setImg(thumpsup)
     .setImgAlt("Image of a thumps up")

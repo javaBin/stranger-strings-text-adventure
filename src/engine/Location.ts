@@ -7,8 +7,11 @@ class Location {
     public imageAlt?: string;
     public locations: Map<string, Location>;
     public items: Map<string, Item>;
+    public onEnter: () => void;
+    public entered : boolean = false;
 
     constructor() {
+        this.onEnter = () => undefined;
         this.locations = new Map<string, Location>();
         this.items = new Map<string, Item>();
     }
@@ -45,6 +48,11 @@ class Location {
 
     public removeItem(name: string): Location {
         this.items.delete(name.toLowerCase());
+        return this;
+    }
+
+    public setOnEnter(fn: () => void): Location{
+        this.onEnter = fn;
         return this;
     }
 }

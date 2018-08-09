@@ -7,9 +7,11 @@ import doorImg from './img/halway';
 import inside from "./img/inside";
 import intersectionImg from './img/intersection';
 import startSection from './sections/beginning';
-import { lostWoodsSection, torch } from './sections/thelostwoods';
+import { final as goalLostWood, lostWoodsSection, torch } from './sections/thelostwoods';
 
 // ascii art taken from https://www.asciiart.eu/
+
+
 const gameEngine = new GameEngine();
 gameEngine.setStartLocation(startSection);
 
@@ -19,6 +21,20 @@ const lostWoods = lostWoodsSection(intersection);
 const door = new Location();
 const insideCastle = new Location();
 const james = new Location();
+
+
+const startTime = new Date();
+function timeDiffInSeconds(): number {
+    return Math.floor((new Date().getTime() - startTime.getTime()) / 1000);
+}
+
+const gtag = (global as any).gtag as any;
+gtag('event', 'start', {
+    'event_category': 'game',
+    'event_label': 'game',
+    'value': 0
+});
+
 
 startSection.link('west', intersection);
 
@@ -38,7 +54,13 @@ intersection
     .link('south', lostWoods)
     .link('forest', lostWoods)
     .link('to forest', lostWoods)
-    .link('north', door);
+    .link('north', door)
+    .setOnEnter(() => gtag('event', 'intersection', {
+            'event_category': 'game',
+            'event_label': 'game',
+            'value': timeDiffInSeconds()
+        })
+    );
 
 castleShadowGate
     .setId('Castle Shadowgate')
@@ -59,7 +81,12 @@ castleShadowGate
     .link("through main gates", insideCastle)
     .link("through the main gates", insideCastle)
     .link("through the main gate", insideCastle)
-    .link("through main gate", insideCastle);
+    .link("through main gate", insideCastle)
+    .setOnEnter(() => gtag('event', 'castle shadowgate', {
+        'event_category': 'game',
+        'event_label': 'game',
+        'value': timeDiffInSeconds()
+    }));
 
 
 const riddle =
@@ -76,18 +103,37 @@ const poster = new Item()
     .setLook(() => riddle);
 
 
+lostWoods.setOnEnter(() => gtag('event', 'enter lost woods', {
+    'event_category': 'game',
+    'event_label': 'game',
+    'value': timeDiffInSeconds()
+}));
+
+goalLostWood.setOnEnter(() => gtag('event', 'complete lost woods', {
+    'event_category': 'game',
+    'event_label': 'game',
+    'value': timeDiffInSeconds()
+}));
+
 insideCastle
     .setId("Inside the castle")
     .setImg(inside)
     .setImgAlt("Image of some halls inside the castle")
-    .setDesc("The castle is big and ominous. But the only thing of interest you could find was a poster.")
+    .setDesc("The castle is big and ominous. But the only thing of interest you could find was a poster. \n" +
+        "There is a path back outside")
     .addItem("poster", poster)
     .link("back", intersection)
     .link("intersection", intersection)
     .link("to intersection", intersection)
     .link("main", intersection)
     .link("main road", intersection)
-    .link("castle", castleShadowGate);
+    .link("castle", castleShadowGate)
+    .link("outside", intersection)
+    .setOnEnter(() => gtag('event', 'inside castle', {
+        'event_category': 'game',
+        'event_label': 'game',
+        'value': timeDiffInSeconds()
+    }));
 
 torch.setUse(() => {
     if(gameEngine.currentLocation === castleShadowGate){
@@ -108,7 +154,12 @@ door.setId('The lonely door')
     .link('back', intersection)
     .link('wind', james)
     .link('with the wind', james)
-    .link('with wind', james);
+    .link('with wind', james)
+    .setOnEnter(() => gtag('event', 'the lonely door', {
+        'event_category': 'game',
+        'event_label': 'game',
+        'value': timeDiffInSeconds()
+    }));
 
 
 const punchCard = new Item()
@@ -125,7 +176,12 @@ james.setId('The architect named James')
         "However, there is a place of ultimate knowledge, where monolithic architectures seem like a ting of the past. " +
         "See you at JavaZone 2018! \n" +
         "He hands you a punch card.")
-    .addItem("punch card", punchCard);
+    .addItem("punch card", punchCard)
+    .setOnEnter(() => gtag('event', 'james', {
+        'event_category': 'game',
+        'event_label': 'game',
+        'value': timeDiffInSeconds()
+    }));
 
 startSection.link('hungry', castleShadowGate); // shortcut for redAnt
 

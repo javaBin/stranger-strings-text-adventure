@@ -32,7 +32,7 @@ class GameEngine {
     }
 
     public send(input: string) {
-        const lowerInput = input.toLowerCase();
+        const lowerInput = input.toLowerCase().trim();
         const cmd = CommandType.values.find(type =>
             lowerInput.startsWith(type.name.toLowerCase())
         );
@@ -43,6 +43,10 @@ class GameEngine {
             case CommandType.GO: {
                 const maybeNewLocation = this.currentLocation.locations.get(rest);
                 if (maybeNewLocation) {
+                    if (!maybeNewLocation.entered){
+                        maybeNewLocation.entered = true;
+                        maybeNewLocation.onEnter();
+                    }
                     this.changeLocation(maybeNewLocation);
                 } else {
                     this.events.push(
