@@ -29,11 +29,12 @@ function timeDiffInSeconds(): number {
 }
 
 const gtag = (global as any).gtag as any;
-gtag('event', 'start', {
+const tagIt = (action: string) => gtag('event', action, {
     'event_category': 'game',
-    'event_label': 'game',
-    'value': 0
+    'event_label': new Date().toUTCString(),
+    'value': timeDiffInSeconds()
 });
+tagIt("start");
 
 
 startSection.link('west', intersection);
@@ -56,12 +57,7 @@ intersection
     .link('to forest', lostWoods)
     .link('north', door)
     .link("east", startSection)
-    .setOnEnter(() => gtag('event', 'intersection', {
-            'event_category': 'game',
-            'event_label': 'game',
-            'value': timeDiffInSeconds()
-        })
-    );
+    .setOnEnter(() => tagIt('intersection'));
 
 castleShadowGate
     .setId('Castle Shadowgate')
@@ -85,11 +81,7 @@ castleShadowGate
     .link("through the main gates", insideCastle)
     .link("through the main gate", insideCastle)
     .link("through main gate", insideCastle)
-    .setOnEnter(() => gtag('event', 'castle shadowgate', {
-        'event_category': 'game',
-        'event_label': 'game',
-        'value': timeDiffInSeconds()
-    }));
+    .setOnEnter(() => tagIt('castle shadowgate'));
 
 
 const riddle =
@@ -106,17 +98,8 @@ const poster = new Item()
     .setLook(() => riddle);
 
 
-lostWoods.setOnEnter(() => gtag('event', 'enter lost woods', {
-    'event_category': 'game',
-    'event_label': 'game',
-    'value': timeDiffInSeconds()
-}));
-
-goalLostWood.setOnEnter(() => gtag('event', 'complete lost woods', {
-    'event_category': 'game',
-    'event_label': 'game',
-    'value': timeDiffInSeconds()
-}));
+lostWoods.setOnEnter(() => tagIt('enter lost woods'));
+goalLostWood.setOnEnter(() => tagIt('complete lost woods'));
 
 insideCastle
     .setId("Inside the castle")
@@ -134,11 +117,7 @@ insideCastle
     .link("back", castleShadowGate)
     .link("outside", castleShadowGate)
     .link("windows", castleShadowGate)
-    .setOnEnter(() => gtag('event', 'inside castle', {
-        'event_category': 'game',
-        'event_label': 'game',
-        'value': timeDiffInSeconds()
-    }));
+    .setOnEnter(() => tagIt('inside castle'));
 
 torch.setUse(() => {
     if(gameEngine.currentLocation === castleShadowGate){
@@ -162,11 +141,7 @@ door.setId('The lonely door')
     .link('wind', james)
     .link('with the wind', james)
     .link('with wind', james)
-    .setOnEnter(() => gtag('event', 'the lonely door', {
-        'event_category': 'game',
-        'event_label': 'game',
-        'value': timeDiffInSeconds()
-    }));
+    .setOnEnter(() => tagIt('the lonely door'));
 
 
 const jamesSays = "Congratulations! You have cleared the game. \n " +
@@ -190,11 +165,7 @@ james.setId('The architect named James')
     .setImgAlt("A image of a strange old bold man")
     .setDesc(jamesSays + punchCardStr)
     .addItem("punch card", punchCard)
-    .setOnEnter(() => gtag('event', 'james', {
-        'event_category': 'game',
-        'event_label': 'game',
-        'value': timeDiffInSeconds()
-    }));
+    .setOnEnter(() => tagIt('james'));
 
 startSection.link('hungry', castleShadowGate); // shortcut for redAnt
 
