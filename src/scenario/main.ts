@@ -123,7 +123,7 @@ insideCastle
     .setImg(inside)
     .setImgAlt("Image of some halls inside the castle")
     .setDesc("The castle is big and ominous. But the only thing of interest you could find was a poster. \n" +
-        "There is a path back outside")
+        "Through the windows, you can see a path leading back from the casle. You recognise this path. It leads back to where you came from.")
     .addItem("poster", poster)
     .link("back", intersection)
     .link("intersection", intersection)
@@ -177,7 +177,7 @@ const punchCardStr = "\n He hands you a punch card.";
 const punchCard = new Item()
     .setTake(() => {
         james.setDesc(jamesSays);
-        return "You took the punch card"
+        return "You took the punch card."
     })
     .setTakeable(true)
     .setUse(() => "https://www.youtube.com/watch?v=dQw4w9WgXcQ") // TODO change me
