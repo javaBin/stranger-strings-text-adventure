@@ -8,7 +8,7 @@ class Location {
     public locations: Map<string, Location>;
     public items: Map<string, Item>;
     public onEnter: () => void;
-    public entered : boolean = false;
+    public entered: boolean = false;
 
     constructor() {
         this.onEnter = () => undefined;
@@ -51,7 +51,7 @@ class Location {
         return this;
     }
 
-    public setOnEnter(fn: () => void): Location{
+    public setOnEnter(fn: () => void): Location {
         this.onEnter = fn;
         return this;
     }

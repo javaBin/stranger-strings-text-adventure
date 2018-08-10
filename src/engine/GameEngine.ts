@@ -2,7 +2,8 @@ import { CommandType } from './Command';
 import {
     GameErrorEvent,
     GameEvent,
-    HelpEvent, InventoryEvent,
+    HelpEvent,
+    InventoryEvent,
     ItemEvent,
     LocationChangeEvent,
     NewInputEvent,
@@ -41,9 +42,11 @@ class GameEngine {
         this.events.push(new NewInputEvent(input));
         switch (cmd) {
             case CommandType.GO: {
-                const maybeNewLocation = this.currentLocation.locations.get(rest);
+                const maybeNewLocation = this.currentLocation.locations.get(
+                    rest
+                );
                 if (maybeNewLocation) {
-                    if (!maybeNewLocation.entered){
+                    if (!maybeNewLocation.entered) {
                         maybeNewLocation.entered = true;
                         maybeNewLocation.onEnter();
                     }
@@ -99,7 +102,9 @@ class GameEngine {
             }
 
             case CommandType.INVENTORY: {
-                this.events.push(new InventoryEvent(Array.from(this.inventory.keys())));
+                this.events.push(
+                    new InventoryEvent(Array.from(this.inventory.keys()))
+                );
                 break;
             }
 

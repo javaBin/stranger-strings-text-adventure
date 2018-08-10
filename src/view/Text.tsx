@@ -5,9 +5,8 @@ interface TextProps {
 }
 
 function Text(props: TextProps) {
-
-    if (props.text.startsWith("http")){
-        return <a href={props.text}>{props.text}</a>
+    if (props.text.startsWith('http')) {
+        return <a href={props.text}>{props.text}</a>;
     }
 
     const lines = props.text

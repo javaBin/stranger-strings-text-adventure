@@ -3,7 +3,7 @@ import * as React from 'react';
 
 interface AsciiImageProps {
     imageSrc: string;
-    alt: string
+    alt: string;
     className?: string;
 }
 
@@ -13,11 +13,15 @@ function AsciiImage(props: AsciiImageProps) {
             {line}
         </div>
     ));
-    return <div role="text"
-                aria-label={props.alt}
-                className={classNames('image', props.className)}>
-        {lines}
-        </div>;
+    return (
+        <div
+            role="text"
+            aria-label={props.alt}
+            className={classNames('image', props.className)}
+        >
+            {lines}
+        </div>
+    );
 }
 
 export default AsciiImage;
