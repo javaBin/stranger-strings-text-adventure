@@ -43,7 +43,7 @@ intersection
     .setDesc(
         'You arrive at an intersection. \n' +
             'To the west you see an ominous castle. ' +
-            'To the south you see a beginning of a forest. ' +
+            'To the south you see the edge of a forest. ' +
             "There is also a path north, but you don't see what it leads to."
     )
     .setImg(intersectionImg)

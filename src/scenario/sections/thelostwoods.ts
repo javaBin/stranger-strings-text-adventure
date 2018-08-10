@@ -19,7 +19,7 @@ export const final = new Location()
     .setImg(thumpsup)
     .setImgAlt("Image of a thumps up")
     .setDesc("FINALLY!!!\n" +
-        "You finally out of the forest. " +
+        "You're finally out of the forest. " +
         "You see a torch lying on the ground. \n" +
         "You see a path back to the intersection.")
     .addItem("torch", torch);
