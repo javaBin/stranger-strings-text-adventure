@@ -123,15 +123,17 @@ insideCastle
     .setImg(inside)
     .setImgAlt("Image of some halls inside the castle")
     .setDesc("The castle is big and ominous. But the only thing of interest you could find was a poster. \n" +
-        "Through the windows, you can see a path leading back from the casle. You recognise this path. It leads back to where you came from.")
+        "Through the windows, you can see a path leading back from the castle. " +
+        "You recognise this path. It leads back to where you came from.")
     .addItem("poster", poster)
-    .link("back", intersection)
     .link("intersection", intersection)
     .link("to intersection", intersection)
     .link("main", intersection)
     .link("main road", intersection)
     .link("castle", castleShadowGate)
-    .link("outside", intersection)
+    .link("back", castleShadowGate)
+    .link("outside", castleShadowGate)
+    .link("windows", castleShadowGate)
     .setOnEnter(() => gtag('event', 'inside castle', {
         'event_category': 'game',
         'event_label': 'game',
