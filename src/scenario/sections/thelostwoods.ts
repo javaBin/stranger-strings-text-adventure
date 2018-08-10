@@ -7,7 +7,7 @@ import thumpsup from "../img/thumpsup";
 export const torch = new Item()
     .setTake(() => {
         final.setDesc("FINALLY!!!\n" +
-            "You finally out of the forest. " +
+            "You're finally out of the forest. " +
             "You see a path back out of the forest.");
         return "You took the torch."
     })
@@ -40,7 +40,7 @@ const left2 = new Location()
         " You see 4 path different paths you can take: left, right, up, down.");
 
 const right1 = new Location()
-    .setId("Unfathomable deep in the woods")
+    .setId("Unfathomably deep in the woods")
     .setDesc("You went right. You arrive at an intersection in the forest." +
         " You see 4 path different paths you can take: left, right, up, down.");
 
@@ -152,12 +152,15 @@ export function lostWoodsSection(backLocation: Location){
     backAtStartLocation.link("back", backLocation);
     backAtStartLocation.link("intersection", backLocation);
     backAtStartLocation.link("to intersection", backLocation);
+    backAtStartLocation.link("north", backLocation);
     startLocation.link("back", backLocation);
     startLocation.link("intersection", backLocation);
     startLocation.link("to intersection", backLocation);
+    startLocation.link("north", backLocation);
     final.link("back", backLocation);
     final.link("intersection", backLocation);
     final.link("to intersection", backLocation);
+    final.link("north", backLocation);
 
     return startLocation
 }

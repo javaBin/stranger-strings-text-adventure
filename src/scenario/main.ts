@@ -55,6 +55,7 @@ intersection
     .link('forest', lostWoods)
     .link('to forest', lostWoods)
     .link('north', door)
+    .link("east", startSection)
     .setOnEnter(() => gtag('event', 'intersection', {
             'event_category': 'game',
             'event_label': 'game',
@@ -69,10 +70,12 @@ castleShadowGate
     .setDesc(
         'A shadow grows on the wall behind you, ' +
             "swallowing you in darkness. It's almost here...\n" +
-            "It's to dark to continue without a light source. You need to go back."
+            "It's too dark to continue without a light source. You need to go back."
     )
     .link('back', intersection)
+    .link('east', intersection)
     .link("gates", insideCastle)
+    .link("forward", insideCastle)
     .link("through gates", insideCastle)
     .link("gate", insideCastle)
     .link("through gate", insideCastle)
@@ -137,7 +140,8 @@ insideCastle
 
 torch.setUse(() => {
     if(gameEngine.currentLocation === castleShadowGate){
-        return "It worked!! You can see a path through the main gates."
+        castleShadowGate.setDesc("You can see a path forward through the main gates.");
+        return "It worked!! You can see a path forward through the main gates."
     }
     return "Can't use that here"
 });
@@ -152,6 +156,7 @@ door.setId('The lonely door')
             'You only see a path back.'
     )
     .link('back', intersection)
+    .link("south", intersection)
     .link('wind', james)
     .link('with the wind', james)
     .link('with wind', james)
@@ -162,20 +167,26 @@ door.setId('The lonely door')
     }));
 
 
+const jamesSays = "Congratulations! You have cleared the game. \n " +
+    "James: Unfortunately, there is no legendary artifact. We have tried to create it, but failed. Many times. " +
+    "However, there is a place of ultimate knowledge, where monolithic architectures seem like a ting of the past. " +
+    "See you at JavaZone 2018!";
+
+const punchCardStr = "\n He hands you a punch card.";
+
 const punchCard = new Item()
-    .setTake(() => "You took the punch card")
+    .setTake(() => {
+        james.setDesc(jamesSays);
+        return "You took the punch card"
+    })
     .setTakeable(true)
-    .setUse(() => "https://youtu.be/kLO1djacsfg?t=3m6s") // TODO change me
-    .setLook(() => "https://youtu.be/kLO1djacsfg?t=3m6s"); // TODO change me
+    .setUse(() => "https://www.youtube.com/watch?v=dQw4w9WgXcQ") // TODO change me
+    .setLook(() => "https://www.youtube.com/watch?v=dQw4w9WgXcQ"); // TODO change me
 
 james.setId('The architect named James')
     .setImg(gosling)
     .setImgAlt("A image of a strange old bold man")
-    .setDesc("Congratulations! You have cleared the game. \n " +
-        "James: Unfortunately, there is no legendary artifact. We have tried to create it, but failed. Many times. " +
-        "However, there is a place of ultimate knowledge, where monolithic architectures seem like a ting of the past. " +
-        "See you at JavaZone 2018! \n" +
-        "He hands you a punch card.")
+    .setDesc(jamesSays + punchCardStr)
     .addItem("punch card", punchCard)
     .setOnEnter(() => gtag('event', 'james', {
         'event_category': 'game',

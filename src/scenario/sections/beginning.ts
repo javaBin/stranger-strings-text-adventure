@@ -6,7 +6,7 @@ import mountain from "../img/mountain";
 const start = new Location()
     .setId("A new beginning")
     .setDesc("You are standing in an old, abandoned house. " +
-        "There is nothing in the room except for a closed chest.")
+        "There is nothing in the room expect for a closed chest.")
     .setImgAlt("Image of a house on the mountains")
     .setImg(mountain);
 
@@ -48,7 +48,10 @@ const letterText = "Welcome to QuestZone! \n" +
 
 const letter = new Item()
     .setLook(() => "It's a letter. You can probably read it.")
-    .setTake(() => "You took the letter.")
+    .setTake(() => {
+        chest.setLook(() => "The chest is empty.");
+        return "You took the letter."
+    })
     .setTakeable(true)
     .setUse(() => "You made a paper plane...\n That was fun. Let's continue the adventure.")
     .on("read", () => letterText);
@@ -62,7 +65,7 @@ const scroll = new Item()
     })
     .setTakeable(true)
     .setUse(() => "You made an origami figure...\n That was fun. Maybe you should read it?")
-    .on("read", () => "To be GDPR compliant you herby accept all terms and conditions by TAKING this scroll!!\n" +
+    .on("read", () => "To be GDPR compliant you hereby accept all terms and conditions by TAKING this scroll!!\n" +
         "What this entails you will never know ¯\\_(ツ)_/¯")
 ;
 
