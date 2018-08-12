@@ -6,7 +6,7 @@ import mountain from "../img/mountain";
 const start = new Location()
     .setId("A new beginning")
     .setDesc("You are standing in an old, abandoned house. " +
-        "There is nothing in the room expect for a closed chest.")
+        "There is nothing in the room except for a closed chest.")
     .setImgAlt("Image of a house on the mountains")
     .setImg(mountain);
 
