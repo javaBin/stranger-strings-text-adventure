@@ -26,7 +26,7 @@ class Game extends React.Component<any, AppState> {
     }
 
     public onBlur() {
-        this.nameInput.focus()
+        setTimeout(() => this.nameInput.focus(), 0);
     }
 
     public handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
@@ -76,6 +76,9 @@ class Game extends React.Component<any, AppState> {
         );
     }
 
+    public componentDidMount(){
+        document.addEventListener('mousedown', this.onBlur);
+    }
 
     private getHistoryInput(pointer: number): string {
 
