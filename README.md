@@ -13,7 +13,7 @@ $ npm start
 $ npm test
 ```
 
-##Tips
+## Tips
 ### A good puzzle design should
 
 1. Provide clear goals
