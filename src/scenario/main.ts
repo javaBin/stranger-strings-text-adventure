@@ -161,8 +161,8 @@ const punchCard = new Item()
         return 'You took the punch card.';
     })
     .setTakeable(true)
-    .setUse(() => 'https://www.youtube.com/watch?v=dQw4w9WgXcQ') // TODO change me
-    .setLook(() => 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'); // TODO change me
+    .setUse(() => 'https://youtu.be/EAH3i6l8PbY?t=15m58s')
+    .setLook(() => 'https://youtu.be/EAH3i6l8PbY?t=15m58s');
 
 james
     .setId('The architect named James')
