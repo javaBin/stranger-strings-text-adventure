@@ -14,7 +14,7 @@ $ npm test
 ```
 
 ##Tips
-### A Good puzzle design should
+### A good puzzle design should
 
 1. Provide clear goals
     - should always know what their short and longterm goals are, so they know witch puzzles to solve and have the motion to do so
