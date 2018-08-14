@@ -63,7 +63,7 @@ class Game extends React.Component<any, AppState> {
                 <span id="input">
                     <div id="input-tag">{'> '}</div>
                     <input id="input-element"
-                           aria-label="game input"
+                           aria-label="Input your game commands here"
                            ref={(input: HTMLInputElement) => {
                                this.nameInput = input;
                            }}

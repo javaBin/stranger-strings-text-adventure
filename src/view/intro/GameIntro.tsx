@@ -9,7 +9,10 @@ function GameIntroView() {
         <AsciiImage className={"intro"} imageSrc={Logo} alt={"QuestZone Logo"}/>
         <h1 className="sr-only">QuestZone</h1>
         <h2 className="game-intro-subtitle">The quest for the holy artifact</h2>
-        <h3 className="game-intro-enter">> Press enter to play the game </h3>
+        <h3 className="game-intro-enter"
+            role="tekst"
+            aria-label="Press enter to play the game ">
+            > Press enter to play the game </h3>
         <h3 className="game-intro-credits">Made by: Mike, Will, Dustin, Lucas </h3>
     </div>;
 }
