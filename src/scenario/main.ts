@@ -86,12 +86,13 @@ castleShadowGate
     .setOnEnter(() => tagIt('castle shadowgate'));
 
 const riddle =
-    'The lonely door is an illusion. Solve me to figure out a way through: \n' +
+    'Solve me to figure out a way through: \n' +
     'Voiceless it cries, ' +
     'Wingless flutters, ' +
     'Toothless bites, ' +
     'Mouthless mutters. ' +
-    '\n What am I? Go with me through the door';
+    '\n What am I? Go with me through the lonely door' +
+    '\n There is nothing else of interest in the castle';
 
 const poster = new Item()
     .setUse(() => riddle)
