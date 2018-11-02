@@ -15,7 +15,6 @@ interface HelpViewProps {
 }
 
 function HelpView(props: HelpViewProps) {
-    console.log(props);
     const helpBlock = props.visibleCommand.map(command => (
         <div key={command} className="command-block">
             <div className="command-block-key">{command}</div>
