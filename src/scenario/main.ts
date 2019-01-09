@@ -30,9 +30,9 @@ function timeDiffInSeconds(): number {
     return Math.floor((new Date().getTime() - startTime.getTime()) / 1000);
 }
 
-const gtag = (global as any).gtag as any;
+const gtag: (a: any, b:any, c:any) => void = (global as any).gtag;
 const tagIt = (action: string) =>
-    gtag('event', action, {
+    !!gtag && gtag('event', action, {
         event_category: 'game',
         event_label: new Date().toUTCString(),
         value: timeDiffInSeconds(),
