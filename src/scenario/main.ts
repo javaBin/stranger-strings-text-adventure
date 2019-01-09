@@ -15,7 +15,7 @@ import {
 
 // ascii art taken from https://www.asciiart.eu/
 
-const gameEngine = new GameEngine();
+const gameEngine = new GameEngine(startSection);
 gameEngine.setStartLocation(startSection);
 
 const intersection = new Location();

@@ -12,7 +12,7 @@ interface EventsViewProps {
 }
 
 class EventsView extends React.Component<EventsViewProps, any> {
-    private eventEnd: HTMLDivElement;
+    private eventEnd!: HTMLDivElement;
 
     constructor(props: any) {
         super(props);

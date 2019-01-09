@@ -1,8 +1,8 @@
 import Item from './Item';
 
 class Location {
-    public id: string;
-    public description: string;
+    public id: string = "";
+    public description: string = "";
     public image?: string;
     public imageAlt?: string;
     public locations: Map<string, Location>;

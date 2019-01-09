@@ -18,7 +18,8 @@ class GameEngine {
 
     private events: GameEvent[];
 
-    constructor() {
+    constructor(location: Location) {
+        this.currentLocation = location;
         this.events = [];
         this.inventory = new Map();
     }

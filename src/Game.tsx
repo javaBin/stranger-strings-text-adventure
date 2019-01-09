@@ -12,7 +12,7 @@ interface AppState {
 }
 
 class Game extends React.Component<any, AppState> {
-    private nameInput: HTMLInputElement;
+    private nameInput!: HTMLInputElement;
 
     constructor(props: any) {
         super(props);

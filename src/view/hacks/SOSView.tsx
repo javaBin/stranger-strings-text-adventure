@@ -13,8 +13,8 @@ interface SoSState {
 const timer = 1000;
 
 class SOSView extends React.Component<any, SoSState> {
-    private eventEnd: HTMLDivElement;
-    private mounted: boolean
+    private eventEnd!: HTMLDivElement;
+    private mounted: boolean = true;
 
     constructor(props: any) {
         super(props);

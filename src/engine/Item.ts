@@ -1,7 +1,7 @@
 class Item {
-    public use: () => string;
-    public look: () => string;
-    public take: () => string;
+    public use: () => string = () => "";
+    public look: () => string = () => "";
+    public take: () => string = () => "";
     public takeable = false;
 
     public customCommands: Map<string, () => string>;

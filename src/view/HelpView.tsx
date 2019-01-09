@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const helpMapper = {
+const helpMapper: { [s: string]: string; }  = {
     GO: ' <DIRECTION> :  e.g `go north`, or `go through door`',
     HELP: ' : shows this help text',
     INVENTORY: ' : shows your taken items',
